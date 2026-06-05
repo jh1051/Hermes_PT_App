@@ -1,0 +1,717 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-06-05T17:25:50Z",
+  "profile": {
+    "name": "Jamie Harris",
+    "height": "5ft 8",
+    "startWeight": {
+      "st": 10,
+      "lb": 7,
+      "date": "2026-05-20"
+    },
+    "currentWeight": {
+      "st": 10,
+      "lb": 5.9,
+      "date": "2026-06-05"
+    },
+    "goalWeight": {
+      "st": 10,
+      "lb": 10
+    },
+    "calorieTarget": {
+      "min": 2500,
+      "max": 2600
+    },
+    "proteinTargetG": 135,
+    "bodyFatPercent": 20.7,
+    "bodyFatDate": "2026-06-05",
+    "bodyFatGoalMin": 12,
+    "bodyFatGoalMax": 15,
+    "stepTarget": 0,
+    "notes": [
+      "Home gym: barbell, push-up bars.",
+      "Runs regularly.",
+      "No gym access.",
+      "No allergies.",
+      "Target: 2500-2600 kcal / 135g protein.",
+      "Goal: lean, functional strength \u2014 build muscle without bulking up. Abs target: 12-15% body fat."
+    ],
+    "bmi": {
+      "value": 22.4,
+      "date": "2026-06-05",
+      "note": "Scale-reported BMI from morning weigh-in",
+      "scaleReportedValue": 20.4,
+      "scaleReportedDate": "2026-06-04",
+      "scaleNote": "Scale displayed BMI, but this conflicts with calculated BMI for recorded height/weight"
+    }
+  },
+  "weighIns": [
+    {
+      "date": "2026-05-20",
+      "st": 10,
+      "lb": 7,
+      "note": "Start weight"
+    },
+    {
+      "date": "2026-06-03",
+      "st": 10,
+      "lb": 6,
+      "note": "Current weight"
+    },
+    {
+      "date": "2026-06-04",
+      "st": 10,
+      "lb": 5.7,
+      "kg": 66.1,
+      "note": "Morning weigh-in; scale displayed BMI 20.4, calculated BMI from height/weight is 22.2"
+    },
+    {
+      "date": "2026-06-05",
+      "st": 10,
+      "lb": 5.9,
+      "kg": 66.2,
+      "note": "Morning weigh-in; scale BMI 22.4; body fat 20.7%"
+    }
+  ],
+  "bodyFatHistory": [
+    {
+      "date": "2026-06-03",
+      "percent": 19.6,
+      "note": "First recorded body fat %"
+    },
+    {
+      "date": "2026-06-04",
+      "percent": 19.4,
+      "note": "Second reading"
+    },
+    {
+      "date": "2026-06-05",
+      "percent": 20.7,
+      "note": "Morning scale reading"
+    }
+  ],
+  "workoutPlans": [
+    {
+      "weekStart": "2026-05-25",
+      "current": true,
+      "notes": "Agreed weekly plan. Bodyweight upper/core Mon/Wed/Fri. Run Tue/Thu/Sat. Walk or active recovery Sunday.",
+      "days": [
+        {
+          "day": "Mon",
+          "status": "complete",
+          "focus": "Push",
+          "items": [
+            "Push-Ups 3xAMRAP",
+            "Sit-Ups 3xAMRAP",
+            "Barbell Curls 3x10"
+          ]
+        },
+        {
+          "day": "Tue",
+          "status": "complete",
+          "focus": "Run",
+          "items": [
+            "Easy run 20-30 mins"
+          ]
+        },
+        {
+          "day": "Wed",
+          "status": "complete",
+          "focus": "Pull",
+          "items": [
+            "Barbell Curls 3x10",
+            "Sit-Ups 3xAMRAP",
+            "Push-Ups 3xAMRAP"
+          ]
+        },
+        {
+          "day": "Thu",
+          "status": "complete",
+          "focus": "Run",
+          "items": [
+            "Easy run 20-30 mins"
+          ]
+        },
+        {
+          "day": "Fri",
+          "status": "complete",
+          "focus": "Full",
+          "items": [
+            "Push-Ups 3xAMRAP",
+            "Barbell Curls 3xAMRAP",
+            "Sit-Ups 3xAMRAP"
+          ]
+        },
+        {
+          "day": "Sat",
+          "status": "upcoming",
+          "focus": "Run",
+          "items": [
+            "Easy run 20-30 mins"
+          ]
+        },
+        {
+          "day": "Sun",
+          "status": "upcoming",
+          "focus": "Rest",
+          "items": [
+            "Walk or easy mobility 30-40 mins"
+          ]
+        }
+      ]
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-06-05",
+      "label": "Fri 5 Jun",
+      "food": [
+        {
+          "name": "3 egg omelette",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 19,
+          "note": "Late morning meal; no protein powder today"
+        },
+        {
+          "name": "Banana",
+          "estimated": true,
+          "kcal": 105,
+          "proteinG": 1,
+          "note": "Afternoon snack"
+        },
+        {
+          "name": "Pink Lady apple with peanut butter",
+          "estimated": true,
+          "kcal": 130,
+          "proteinG": 3,
+          "note": "Afternoon snack; 1 Pink Lady apple and 1.5 tsp peanut butter"
+        },
+        {
+          "name": "Burgers, sweet potato fries, fried egg, veg and cheese",
+          "estimated": true,
+          "kcal": 796,
+          "proteinG": 61,
+          "note": "Dinner with burger, fries, egg, veg and cheese.",
+          "ingredients": [
+            {
+              "name": "Magere runderburgers x3",
+              "amount": "240g, 3 of 5 burgers",
+              "kcal": 336,
+              "proteinG": 41,
+              "note": ""
+            },
+            {
+              "name": "Homemade sweet potato fries",
+              "amount": "180g",
+              "kcal": 155,
+              "proteinG": 3,
+              "note": ""
+            },
+            {
+              "name": "Fried egg",
+              "amount": "1 egg",
+              "kcal": 125,
+              "proteinG": 6,
+              "note": ""
+            },
+            {
+              "name": "Broccoli and peas",
+              "amount": "1 portion",
+              "kcal": 100,
+              "proteinG": 6,
+              "note": ""
+            },
+            {
+              "name": "Grated cheese",
+              "amount": "small sprinkle",
+              "kcal": 80,
+              "proteinG": 5,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "drinks": [],
+      "totals": {
+        "kcal": 1311,
+        "proteinG": 84,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135,
+        "note": "No protein powder today as a tolerance test. Feeling much better without it. Dinner includes burger packet label plus estimated egg, veg, cheese and sweet potato fries."
+      },
+      "workouts": [
+        {
+          "name": "Friday full-body workout",
+          "status": "complete",
+          "estimated": true,
+          "note": "Lost count slightly on final sit-ups and curls; totals are approximate.",
+          "exercises": [
+            {
+              "name": "Push-ups",
+              "reps": "15 / 10 / 10",
+              "amount": "3 sets",
+              "note": "Total 35"
+            },
+            {
+              "name": "Sit-ups",
+              "reps": "20 / 20 / 20-25",
+              "amount": "3 sets",
+              "note": "Total 60-65 approx"
+            },
+            {
+              "name": "Barbell curls",
+              "reps": "25 / 25 / 25-30",
+              "amount": "3 sets",
+              "weight": "6kg barbell approx",
+              "note": "Total 75-80 approx"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Morning metrics: 10st 5.9lb (66.2kg), BMI 22.4, body fat 20.7%.",
+        "Felt much better today without protein powder; day felt good. Protein powder tolerance test looks useful."
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "label": "Thu 4 Jun",
+      "food": [
+        {
+          "name": "Vanilla protein mousse",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 50,
+          "note": "Breakfast; 2 scoops"
+        },
+        {
+          "name": "3 egg omelette",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 19,
+          "note": "Lunch"
+        },
+        {
+          "name": "Banana",
+          "estimated": true,
+          "kcal": 105,
+          "proteinG": 1,
+          "note": "Breakfast"
+        },
+        {
+          "name": "Chicken pasta with polpa tomato sauce",
+          "estimated": true,
+          "kcal": 657,
+          "proteinG": 61,
+          "note": "Dinner; 90g dry pasta, ~138g chicken, ~100g passata/polpa, half Oxo cube, cheese estimated ~20g"
+        },
+        {
+          "name": "Apple and peanut butter",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 7,
+          "note": "Evening snack; peanut butter portion estimated"
+        }
+      ],
+      "drinks": [],
+      "totals": {
+        "kcal": 1602,
+        "proteinG": 138,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135,
+        "note": "Incomplete log - dinner and evening snack estimated; cheese and peanut butter amounts assumed"
+      },
+      "workouts": [
+        {
+          "name": "Intense walk",
+          "status": "complete",
+          "estimated": true,
+          "note": "~10 min"
+        },
+        {
+          "name": "Pre-run stretch",
+          "status": "complete",
+          "estimated": true,
+          "note": "~5 min before evening run"
+        },
+        {
+          "name": "Run",
+          "status": "complete",
+          "estimated": true,
+          "note": "~20 min; roughly 1.5 laps of Haagse Bos"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "label": "Wed 3 Jun",
+      "food": [
+        {
+          "name": "Chocolate protein moose",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 50,
+          "note": "2 scoops + 80ml milk"
+        },
+        {
+          "name": "3 egg omelette",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 19,
+          "note": "~19-20g protein from eggs"
+        },
+        {
+          "name": "Banana",
+          "estimated": true,
+          "kcal": 105,
+          "proteinG": 1
+        },
+        {
+          "name": "Apple",
+          "estimated": true,
+          "kcal": 95,
+          "proteinG": 0
+        },
+        {
+          "name": "Pizza wraps with chicken and cheese",
+          "estimated": true,
+          "kcal": 780,
+          "proteinG": 45,
+          "note": "2 wraps total, each with chicken and cheese"
+        }
+      ],
+      "drinks": [
+        {
+          "name": "Water",
+          "estimated": true,
+          "kcal": 0,
+          "proteinG": 0
+        }
+      ],
+      "totals": {
+        "kcal": 1540,
+        "proteinG": 115,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135
+      },
+      "workouts": [
+        {
+          "name": "Push/Pull mix",
+          "status": "complete",
+          "estimated": true,
+          "note": "Push-ups: 40, Barbell curls: 100, Ab crunches: 20, Sit-ups: 50"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-02",
+      "label": "Tue 2 Jun",
+      "food": [
+        {
+          "name": "3 egg omelette",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 19,
+          "note": "~18-19g protein from eggs"
+        },
+        {
+          "name": "Protein shake",
+          "estimated": true,
+          "kcal": 150,
+          "proteinG": 25
+        },
+        {
+          "name": "Protein mousse x2",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 42,
+          "note": "~41.6g protein"
+        },
+        {
+          "name": "Southern fried chicken, lettuce, chips",
+          "estimated": true,
+          "kcal": 950,
+          "proteinG": 40,
+          "note": "Dinner"
+        }
+      ],
+      "drinks": [],
+      "totals": {
+        "kcal": 1660,
+        "proteinG": 126,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135
+      },
+      "workouts": [
+        {
+          "name": "Run",
+          "status": "complete",
+          "estimated": true,
+          "note": "20 min easy; shortened from 30 due to soreness Route: about 1.25 laps around Haagse Bos."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "label": "Mon 1 Jun",
+      "food": [
+        {
+          "name": "2 egg omelette",
+          "estimated": true,
+          "kcal": 190,
+          "proteinG": 13,
+          "note": "~12-13g protein from eggs"
+        },
+        {
+          "name": "Spaghetti bolognese",
+          "estimated": true,
+          "kcal": 750,
+          "proteinG": 35,
+          "note": "Good mince portion with pasta and cheese"
+        }
+      ],
+      "drinks": [
+        {
+          "name": "Water",
+          "estimated": true,
+          "kcal": 0,
+          "proteinG": 0,
+          "note": "2 bottles through the day"
+        }
+      ],
+      "totals": {
+        "kcal": 940,
+        "proteinG": 48,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135,
+        "note": "Incomplete log - morning + dinner only; midday snacks/protein shakes may be missing"
+      },
+      "workouts": [
+        {
+          "name": "Push workout",
+          "status": "complete",
+          "estimated": true,
+          "note": "Push-ups 13/11/7, Sit-ups 25/15/15, Barbell curls 25/25/20 at 6kg"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-31",
+      "label": "Sun 31 May",
+      "food": [
+        {
+          "name": "Omelette (4 eggs)",
+          "estimated": true,
+          "kcal": 380,
+          "proteinG": 25,
+          "note": "~25g protein from eggs"
+        },
+        {
+          "name": "Banana",
+          "estimated": true,
+          "kcal": 105,
+          "proteinG": 1
+        },
+        {
+          "name": "Massaman curry",
+          "estimated": true,
+          "kcal": 700,
+          "proteinG": 30,
+          "note": "Good if includes protein portion"
+        },
+        {
+          "name": "Apple and peanut butter",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 7
+        },
+        {
+          "name": "Protein mousse x2",
+          "estimated": true,
+          "kcal": 280,
+          "proteinG": 42,
+          "note": "Each: 30g protein powder + 80ml milk, ~20.8g protein; total ~41.6g"
+        }
+      ],
+      "drinks": [
+        {
+          "name": "Water",
+          "estimated": true,
+          "kcal": 0,
+          "proteinG": 0
+        },
+        {
+          "name": "Coffee with milk",
+          "estimated": true,
+          "kcal": 30,
+          "proteinG": 1
+        }
+      ],
+      "totals": {
+        "kcal": 1775,
+        "proteinG": 106,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135
+      },
+      "workouts": []
+    },
+    {
+      "date": "2026-05-30",
+      "label": "Sat 30 May",
+      "food": [],
+      "drinks": [
+        {
+          "name": "Cappuccino",
+          "estimated": true,
+          "kcal": 80,
+          "proteinG": 4
+        },
+        {
+          "name": "Beer at picnic",
+          "estimated": true,
+          "kcal": 150,
+          "proteinG": 2
+        }
+      ],
+      "totals": {
+        "kcal": 230,
+        "proteinG": 6,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135,
+        "note": "Incomplete log - no food recorded, only drinks"
+      },
+      "workouts": []
+    },
+    {
+      "date": "2026-05-29",
+      "label": "Fri 29 May",
+      "food": [
+        {
+          "name": "Pizza wraps with cheese, bacon, chicken",
+          "estimated": true,
+          "kcal": 850,
+          "proteinG": 50
+        }
+      ],
+      "drinks": [
+        {
+          "name": "Water",
+          "estimated": true,
+          "kcal": 0,
+          "proteinG": 0,
+          "note": "2 bottles total"
+        }
+      ],
+      "totals": {
+        "kcal": 850,
+        "proteinG": 50,
+        "kcalTarget": "2500-2600",
+        "proteinTargetG": 135,
+        "note": "Incomplete log - only pizza wraps recorded; full day's intake likely higher"
+      },
+      "workouts": []
+    }
+  ],
+  "foodEstimateReference": {
+    "note": "Source-of-truth estimates Paul uses when exact labels are unavailable. Each logged food/drink should still carry kcal and proteinG directly on the entry.",
+    "items": [
+      {
+        "name": "3 egg omelette",
+        "serving": "plain, no cheese",
+        "kcal": 280,
+        "proteinG": 19
+      },
+      {
+        "name": "4 egg omelette",
+        "serving": "plain, no cheese",
+        "kcal": 380,
+        "proteinG": 25
+      },
+      {
+        "name": "Banana",
+        "serving": "1 medium",
+        "kcal": 105,
+        "proteinG": 1
+      },
+      {
+        "name": "Apple",
+        "serving": "1 medium",
+        "kcal": 95,
+        "proteinG": 0
+      },
+      {
+        "name": "Chicken breast",
+        "serving": "150g cooked",
+        "kcal": 230,
+        "proteinG": 46
+      },
+      {
+        "name": "Chicken breast",
+        "serving": "100g cooked",
+        "kcal": 153,
+        "proteinG": 31
+      },
+      {
+        "name": "Dry pasta",
+        "serving": "90g dry",
+        "kcal": 333,
+        "proteinG": 12
+      },
+      {
+        "name": "Cheese topping",
+        "serving": "20g",
+        "kcal": 80,
+        "proteinG": 5
+      },
+      {
+        "name": "Vanilla protein mousse",
+        "serving": "2 scoops default",
+        "kcal": 280,
+        "proteinG": 50
+      },
+      {
+        "name": "Greek yoghurt/Skyr",
+        "serving": "200g/pot typical",
+        "kcal": 120,
+        "proteinG": 20
+      },
+      {
+        "name": "Milk",
+        "serving": "500ml",
+        "kcal": 250,
+        "proteinG": 17
+      },
+      {
+        "name": "Tuna tin",
+        "serving": "1 tin drained",
+        "kcal": 130,
+        "proteinG": 25
+      },
+      {
+        "name": "Water",
+        "serving": "any",
+        "kcal": 0,
+        "proteinG": 0
+      },
+      {
+        "name": "Passata/polpa tomato sauce",
+        "serving": "100g",
+        "kcal": 25,
+        "proteinG": 1
+      },
+      {
+        "name": "Passata/polpa tomato sauce",
+        "serving": "200g",
+        "kcal": 50,
+        "proteinG": 2
+      },
+      {
+        "name": "Apple and peanut butter",
+        "serving": "1 apple + typical peanut butter portion",
+        "kcal": 280,
+        "proteinG": 7
+      }
+    ]
+  }
+}
