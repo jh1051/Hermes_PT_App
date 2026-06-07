@@ -1925,24 +1925,24 @@
                 </span>
                 <div class="summary-titles">
                   <span class="summary-title">Calories</span>
-                  <span class="summary-goal-label">Goal: 2,000 kcal</span>
+                  <span class="summary-goal-label">Goal: -- kcal</span>
                 </div>
               </div>
             </div>
 
             <div class="summary-figure">
-              <span class="summary-number" data-target="1350" data-format="thousands">1,350</span>
+              <span class="summary-number" data-target="0" data-format="thousands">--</span>
               <span class="summary-unit">kcal</span>
             </div>
           </div>
 
           <div class="summary-bar-wrap">
             <div class="summary-bar">
-              <div class="summary-bar-fill" data-target="67" style="--bar-target: 67%"></div>
+              <div class="summary-bar-fill" data-target="0" style="--bar-target: 0%"></div>
             </div>
             <div class="summary-bar-labels">
-              <span class="summary-percent"><span class="pct-value" data-target="67">67</span>% complete</span>
-              <span>650 kcal remaining</span>
+              <span class="summary-percent"><span class="pct-value" data-target="0">0</span>% complete</span>
+              <span>0 kcal remaining</span>
             </div>
           </div>
         </div>
@@ -1956,24 +1956,24 @@
                 </span>
                 <div class="summary-titles">
                   <span class="summary-title">Protein</span>
-                  <span class="summary-goal-label">Goal: 150 g</span>
+                  <span class="summary-goal-label">Goal: -- g</span>
                 </div>
               </div>
             </div>
 
             <div class="summary-figure">
-              <span class="summary-number" data-target="96">96</span>
+              <span class="summary-number" data-target="0">--</span>
               <span class="summary-unit">g</span>
             </div>
           </div>
 
           <div class="summary-bar-wrap">
             <div class="summary-bar">
-              <div class="summary-bar-fill" data-target="64" style="--bar-target: 64%"></div>
+              <div class="summary-bar-fill" data-target="0" style="--bar-target: 0%"></div>
             </div>
             <div class="summary-bar-labels">
-              <span class="summary-percent"><span class="pct-value" data-target="64">64</span>% complete</span>
-              <span>54 g remaining</span>
+              <span class="summary-percent"><span class="pct-value" data-target="0">0</span>% complete</span>
+              <span>0 g remaining</span>
             </div>
           </div>
         </div>
@@ -1984,7 +1984,7 @@
               <span class="summary-title">Weight Progress</span>
             </div>
             <div class="weight-head-right">
-              <span class="weight-number" data-target="173">173</span>
+              <span class="weight-number" data-target="0">--</span>
               <span class="weight-unit" style="display:none">lbs</span>
             </div>
           </div>
@@ -2027,7 +2027,7 @@
             </div>
           </div>
 
-          <span class="weight-foot">Avg 0.6 lbs/wk</span>
+          <span class="weight-foot" id="weightFoot">--</span>
         </div>
       </div>
     </section>
@@ -2073,21 +2073,21 @@
                 <span class="profile-row-icon"><i class="fa-solid fa-ruler-vertical"></i></span>
                 <span>Height</span>
               </div>
-              <span class="profile-row-value">5ft 8</span>
+              <span class="profile-row-value" id="profileHeight">--</span>
             </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-weight-scale"></i></span>
                 <span>Weight</span>
               </div>
-              <span class="profile-row-value">10st 5.9lb<span class="profile-row-sub">Goal: 10st 10lb</span></span>
+              <span class="profile-row-value" id="profileWeight">--<span class="profile-row-sub" id="profileGoalWeight">Goal: --</span></span>
             </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-cake-candles"></i></span>
                 <span>Age</span>
               </div>
-              <span class="profile-row-value">28</span>
+              <span class="profile-row-value" id="profileAge">--</span>
             </div>
           </div>
         </div>
@@ -2100,14 +2100,14 @@
                 <span class="profile-row-icon"><i class="fa-solid fa-fire"></i></span>
                 <span>Calories</span>
               </div>
-              <span class="profile-row-value">2,500 – 2,600<span class="profile-row-sub">kcal per day</span></span>
+              <span class="profile-row-value" id="profileCalories">--<span class="profile-row-sub">kcal per day</span></span>
             </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-leaf"></i></span>
                 <span>Protein</span>
               </div>
-              <span class="profile-row-value">135 g<span class="profile-row-sub">per day</span></span>
+              <span class="profile-row-value" id="profileProtein">--<span class="profile-row-sub">per day</span></span>
             </div>
           </div>
         </div>
@@ -2238,8 +2238,6 @@
 
   <script>
     let appData = null;
-    let GOAL = 150;
-
     const ACTIVE_DAYS = new Set();
 
     function buildLoggedDays() {
@@ -2505,7 +2503,8 @@
         var parts = entry.date.split(" ");
         var m = MONTHS.indexOf(parts[0]);
         var d = parseInt(parts[1], 10);
-        var entryDate = new Date(2026, m, d);
+        var y = cutoff.getFullYear();
+        var entryDate = new Date(y, m, d);
         return entryDate >= cutoff;
       }
       var datasets = {};
@@ -2853,180 +2852,6 @@
     const workoutPopupExercises = document.getElementById("workoutPopupExercises");
     const workoutPopupClose = document.getElementById("workoutPopupClose");
     const DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-
-    const WORKOUT_POOL = [
-      { name: "Upper Body Strength", duration: 50, calories: 380, exercises: [
-        { name: "Bench Press", sets: 4, reps: "8-10", weight: "155 lbs", cals: 50 },
-        { name: "Bent-Over Row", sets: 4, reps: "8-10", weight: "135 lbs", cals: 50 },
-        { name: "Overhead Press", sets: 3, reps: "10-12", weight: "95 lbs", cals: 35 },
-        { name: "Pull-Ups", sets: 3, reps: "6-8", weight: "bodyweight", cals: 40 },
-        { name: "Bicep Curls", sets: 3, reps: "12", weight: "30 lbs", cals: 20 },
-        { name: "Tricep Dips", sets: 3, reps: "10-12", weight: "bodyweight", cals: 30 }
-      ]},
-      { name: "Lower Body Power", duration: 55, calories: 450, exercises: [
-        { name: "Barbell Back Squat", sets: 5, reps: "5", weight: "225 lbs", cals: 80 },
-        { name: "Romanian Deadlift", sets: 4, reps: "8", weight: "185 lbs", cals: 70 },
-        { name: "Bulgarian Split Squat", sets: 3, reps: "10 each", weight: "40 lbs", cals: 60 },
-        { name: "Leg Press", sets: 3, reps: "12", weight: "320 lbs", cals: 60 },
-        { name: "Standing Calf Raise", sets: 4, reps: "15", weight: "180 lbs", cals: 40 }
-      ]},
-      { name: "Push Day", duration: 45, calories: 340, exercises: [
-        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", weight: "65 lbs", cals: 50 },
-        { name: "Flat Bench Press", sets: 4, reps: "8", weight: "155 lbs", cals: 45 },
-        { name: "Dumbbell Shoulder Press", sets: 3, reps: "10", weight: "50 lbs", cals: 35 },
-        { name: "Cable Tricep Pushdown", sets: 3, reps: "12-15", weight: "50 lbs", cals: 25 },
-        { name: "Lateral Raises", sets: 4, reps: "15", weight: "15 lbs", cals: 20 }
-      ]},
-      { name: "Pull Day", duration: 45, calories: 350, exercises: [
-        { name: "Deadlift", sets: 4, reps: "5", weight: "245 lbs", cals: 70 },
-        { name: "Pull-Ups", sets: 4, reps: "8", weight: "bodyweight", cals: 45 },
-        { name: "Barbell Row", sets: 4, reps: "8-10", weight: "135 lbs", cals: 50 },
-        { name: "Face Pulls", sets: 3, reps: "15", weight: "40 lbs", cals: 25 },
-        { name: "Hammer Curls", sets: 3, reps: "12", weight: "30 lbs", cals: 25 }
-      ]},
-      { name: "HIIT Cardio", duration: 30, calories: 420, exercises: [
-        { name: "Burpees", sets: 4, reps: "12", weight: "bodyweight", cals: 100 },
-        { name: "Kettlebell Swings", sets: 4, reps: "20", weight: "35 lbs", cals: 90 },
-        { name: "Mountain Climbers", sets: 4, reps: "30 sec", weight: "bodyweight", cals: 80 },
-        { name: "Box Jumps", sets: 4, reps: "10", weight: "bodyweight", cals: 80 },
-        { name: "Battle Ropes", sets: 4, reps: "30 sec", weight: "—", cals: 70 }
-      ]},
-      { name: "Core & Abs", duration: 25, calories: 220, exercises: [
-        { name: "Hanging Leg Raises", sets: 3, reps: "12", weight: "bodyweight", cals: 40 },
-        { name: "Cable Crunches", sets: 3, reps: "15", weight: "60 lbs", cals: 30 },
-        { name: "Plank", sets: 3, reps: "45 sec", weight: "bodyweight", cals: 30 },
-        { name: "Russian Twists", sets: 3, reps: "20", weight: "25 lbs", cals: 40 },
-        { name: "Ab Wheel Rollout", sets: 3, reps: "10", weight: "bodyweight", cals: 30 }
-      ]},
-      { name: "Full Body Strength", duration: 60, calories: 480, exercises: [
-        { name: "Back Squat", sets: 4, reps: "6-8", weight: "205 lbs", cals: 80 },
-        { name: "Bench Press", sets: 4, reps: "6-8", weight: "155 lbs", cals: 50 },
-        { name: "Bent-Over Row", sets: 4, reps: "8", weight: "135 lbs", cals: 50 },
-        { name: "Overhead Press", sets: 3, reps: "10", weight: "85 lbs", cals: 35 },
-        { name: "Romanian Deadlift", sets: 3, reps: "10", weight: "155 lbs", cals: 50 },
-        { name: "Plank", sets: 3, reps: "60 sec", weight: "bodyweight", cals: 25 }
-      ]},
-      { name: "Run Day", duration: 40, calories: 380, exercises: [
-        { name: "Warm-Up Walk", sets: 1, reps: "5 min", weight: "—", cals: 20 },
-        { name: "Easy Run", sets: 1, reps: "20 min", weight: "—", cals: 180 },
-        { name: "Sprint Intervals", sets: 6, reps: "1 min", weight: "—", cals: 150 },
-        { name: "Cool-Down Walk", sets: 1, reps: "5 min", weight: "—", cals: 20 }
-      ]},
-      { name: "Leg Hypertrophy", duration: 50, calories: 410, exercises: [
-        { name: "Front Squat", sets: 4, reps: "8-10", weight: "155 lbs", cals: 65 },
-        { name: "Hip Thrust", sets: 4, reps: "10", weight: "225 lbs", cals: 60 },
-        { name: "Walking Lunges", sets: 3, reps: "12 each", weight: "50 lbs", cals: 55 },
-        { name: "Leg Curl", sets: 3, reps: "12-15", weight: "90 lbs", cals: 30 },
-        { name: "Leg Extension", sets: 3, reps: "12-15", weight: "100 lbs", cals: 30 }
-      ]}
-    ];
-
-    const MEAL_POOL = [
-      { name: "Grilled Chicken Salad", cals: 420, protein: 38, ingredients: [
-        { name: "Grilled chicken breast", cals: 180, protein: 35 },
-        { name: "Mixed greens", cals: 20, protein: 2 },
-        { name: "Cherry tomatoes", cals: 25, protein: 1 },
-        { name: "Olive oil dressing", cals: 120, protein: 0 },
-        { name: "Feta cheese", cals: 75, protein: 4 }
-      ]},
-      { name: "Salmon & Quinoa Bowl", cals: 510, protein: 42, ingredients: [
-        { name: "Atlantic salmon fillet", cals: 280, protein: 33 },
-        { name: "Cooked quinoa", cals: 150, protein: 5 },
-        { name: "Avocado", cals: 60, protein: 1 },
-        { name: "Steamed broccoli", cals: 20, protein: 3 }
-      ]},
-      { name: "Veggie Stir Fry", cals: 380, protein: 18, ingredients: [
-        { name: "Firm tofu", cals: 140, protein: 14 },
-        { name: "Bell peppers", cals: 30, protein: 1 },
-        { name: "Snap peas", cals: 25, protein: 2 },
-        { name: "Brown rice", cals: 130, protein: 3 },
-        { name: "Sesame oil", cals: 55, protein: 0 }
-      ]},
-      { name: "Turkey Avocado Wrap", cals: 450, protein: 32, ingredients: [
-        { name: "Sliced turkey breast", cals: 120, protein: 24 },
-        { name: "Whole wheat wrap", cals: 180, protein: 6 },
-        { name: "Avocado", cals: 60, protein: 1 },
-        { name: "Spinach", cals: 10, protein: 1 },
-        { name: "Tomato", cals: 20, protein: 1 },
-        { name: "Mayo", cals: 60, protein: 0 }
-      ]},
-      { name: "Pasta Primavera", cals: 620, protein: 22, ingredients: [
-        { name: "Whole grain penne", cals: 280, protein: 10 },
-        { name: "Zucchini", cals: 25, protein: 2 },
-        { name: "Cherry tomatoes", cals: 35, protein: 2 },
-        { name: "Parmesan cheese", cals: 80, protein: 7 },
-        { name: "Olive oil", cals: 120, protein: 0 }
-      ]},
-      { name: "Overnight Oats & Berries", cals: 290, protein: 14, ingredients: [
-        { name: "Rolled oats", cals: 150, protein: 5 },
-        { name: "Greek yogurt", cals: 60, protein: 6 },
-        { name: "Mixed berries", cals: 40, protein: 1 },
-        { name: "Almond milk", cals: 20, protein: 1 },
-        { name: "Honey", cals: 20, protein: 0 }
-      ]},
-      { name: "Chicken Burrito Bowl", cals: 540, protein: 40, ingredients: [
-        { name: "Grilled chicken", cals: 180, protein: 35 },
-        { name: "Brown rice", cals: 150, protein: 3 },
-        { name: "Black beans", cals: 100, protein: 7 },
-        { name: "Salsa", cals: 20, protein: 1 },
-        { name: "Sour cream", cals: 40, protein: 1 },
-        { name: "Cheese", cals: 50, protein: 3 }
-      ]},
-      { name: "Beef & Broccoli", cals: 490, protein: 36, ingredients: [
-        { name: "Lean beef strips", cals: 250, protein: 30 },
-        { name: "Broccoli florets", cals: 35, protein: 3 },
-        { name: "Jasmine rice", cals: 130, protein: 3 },
-        { name: "Soy sauce", cals: 15, protein: 2 }
-      ]},
-      { name: "Mediterranean Bowl", cals: 430, protein: 20, ingredients: [
-        { name: "Chickpeas", cals: 180, protein: 10 },
-        { name: "Cucumber", cals: 15, protein: 1 },
-        { name: "Cherry tomatoes", cals: 30, protein: 2 },
-        { name: "Feta cheese", cals: 60, protein: 4 },
-        { name: "Olive oil", cals: 45, protein: 0 }
-      ]},
-      { name: "Tuna Salad", cals: 310, protein: 30, ingredients: [
-        { name: "Canned tuna", cals: 120, protein: 26 },
-        { name: "Mayonnaise", cals: 90, protein: 0 },
-        { name: "Celery", cals: 10, protein: 0 },
-        { name: "Mixed greens", cals: 20, protein: 2 }
-      ]},
-      { name: "Shrimp Tacos", cals: 470, protein: 28, ingredients: [
-        { name: "Shrimp", cals: 150, protein: 24 },
-        { name: "Corn tortillas", cals: 140, protein: 3 },
-        { name: "Cabbage slaw", cals: 40, protein: 1 },
-        { name: "Lime crema", cals: 60, protein: 0 },
-        { name: "Avocado", cals: 60, protein: 1 }
-      ]},
-      { name: "Lentil Soup", cals: 280, protein: 18, ingredients: [
-        { name: "Red lentils", cals: 140, protein: 12 },
-        { name: "Carrots", cals: 25, protein: 0 },
-        { name: "Celery", cals: 10, protein: 0 },
-        { name: "Onion", cals: 20, protein: 0 },
-        { name: "Diced tomatoes", cals: 30, protein: 1 }
-      ]},
-      { name: "Egg White Omelette", cals: 240, protein: 28, ingredients: [
-        { name: "Egg whites", cals: 80, protein: 17 },
-        { name: "Whole egg", cals: 70, protein: 6 },
-        { name: "Spinach", cals: 10, protein: 1 },
-        { name: "Mushrooms", cals: 15, protein: 1 },
-        { name: "Feta cheese", cals: 40, protein: 3 }
-      ]},
-      { name: "Greek Yogurt & Granola", cals: 320, protein: 18, ingredients: [
-        { name: "Greek yogurt", cals: 120, protein: 12 },
-        { name: "Granola", cals: 140, protein: 3 },
-        { name: "Honey", cals: 30, protein: 0 },
-        { name: "Blueberries", cals: 20, protein: 0 }
-      ]},
-      { name: "Sweet Potato Buddha Bowl", cals: 480, protein: 22, ingredients: [
-        { name: "Roasted sweet potato", cals: 180, protein: 4 },
-        { name: "Quinoa", cals: 130, protein: 5 },
-        { name: "Chickpeas", cals: 80, protein: 5 },
-        { name: "Kale", cals: 30, protein: 3 },
-        { name: "Tahini dressing", cals: 60, protein: 2 }
-      ]}
-    ];
 
     function getMealForDay(date, dayIndex, weekOffset) {
       const today = new Date();
@@ -3471,8 +3296,8 @@
       var calsRemain = sumCards[0] ? sumCards[0].querySelector(".summary-bar-labels span:last-child") : null;
       var protRemain = sumCards[1] ? sumCards[1].querySelector(".summary-bar-labels span:last-child") : null;
       var profile = appData && appData.profile;
-      var calTarget = profile ? (profile.calorieTarget && (profile.calorieTarget.max || profile.calorieTarget) || 2000) : 2000;
-      var protTarget = profile ? (profile.proteinTargetG || 150) : 150;
+      var calTarget = profile ? (profile.calorieTarget && (profile.calorieTarget.max || profile.calorieTarget) || 0) : 0;
+      var protTarget = profile ? (profile.proteinTargetG || 0) : 0;
       if (calsGoalEl) calsGoalEl.textContent = "Goal: " + calTarget.toLocaleString() + " kcal";
       if (protGoalEl) protGoalEl.textContent = "Goal: " + protTarget + " g";
       if (calsEl) { calsEl.dataset.target = cals; }
@@ -3509,6 +3334,58 @@
       if (subEl) subEl.style.display = "none";
     }
 
+    function updateProfilePage() {
+      if (!appData || !appData.profile) return;
+      var p = appData.profile;
+      var nEl = document.getElementById("profileName");
+      if (nEl && p.name) nEl.textContent = p.name;
+      var hEl = document.getElementById("profileHeight");
+      if (hEl && p.height) hEl.textContent = p.height;
+      var wEl = document.getElementById("profileWeight");
+      var gwEl = document.getElementById("profileGoalWeight");
+      var wi = (appData.weighIns || []);
+      var latest = wi.length > 0 ? wi[wi.length - 1] : null;
+      if (wEl && latest) wEl.textContent = latest.st + "st " + Math.round(latest.lb * 10) / 10 + "lb";
+      if (gwEl && p.goalWeight) gwEl.textContent = "Goal: " + p.goalWeight.st + "st " + p.goalWeight.lb + "lb";
+      var aEl = document.getElementById("profileAge");
+      if (aEl) aEl.textContent = p.age || "--";
+      var cEl = document.getElementById("profileCalories");
+      if (cEl && p.calorieTarget) {
+        var sub = cEl.querySelector(".profile-row-sub");
+        var subHtml = sub ? sub.outerHTML : "";
+        cEl.textContent = "";
+        if (p.calorieTarget.min && p.calorieTarget.max) {
+          cEl.textContent = p.calorieTarget.min + " - " + p.calorieTarget.max + " ";
+        } else if (p.calorieTarget.max) {
+          cEl.textContent = p.calorieTarget.max + " ";
+        } else if (p.calorieTarget.min) {
+          cEl.textContent = p.calorieTarget.min + " ";
+        }
+        if (subHtml) cEl.insertAdjacentHTML("beforeend", subHtml);
+      }
+      var pEl = document.getElementById("profileProtein");
+      if (pEl && p.proteinTargetG) {
+        var sub2 = pEl.querySelector(".profile-row-sub");
+        var subHtml2 = sub2 ? sub2.outerHTML : "";
+        pEl.textContent = p.proteinTargetG + " g ";
+        if (subHtml2) pEl.insertAdjacentHTML("beforeend", subHtml2);
+      }
+      var footEl = document.getElementById("weightFoot");
+      if (footEl && wi.length >= 2) {
+        var first = wi[0], last = wi[wi.length - 1];
+        var firstDate = new Date(first.date), lastDate = new Date(last.date);
+        var daysDiff = (lastDate - firstDate) / (1000 * 60 * 60 * 24);
+        if (daysDiff > 0) {
+          var firstLbs = first.st * 14 + first.lb;
+          var lastLbs = last.st * 14 + last.lb;
+          var totalLoss = firstLbs - lastLbs;
+          var weeksDiff = daysDiff / 7;
+          var avgPerWeek = totalLoss / weeksDiff;
+          footEl.textContent = "Avg " + (Math.round(avgPerWeek * 10) / 10) + " lbs/wk";
+        }
+      }
+    }
+
     renderFoodWeek();
     renderFoodDays();
     renderWorkoutWeek();
@@ -3523,14 +3400,12 @@
       .then(function(res) { return res.json(); })
       .then(function(data) {
         appData = data;
-        if (appData.profile && appData.profile.goalWeight) {
-          GOAL = appData.profile.goalWeight.st * 14 + appData.profile.goalWeight.lb;
-        }
         buildLoggedDays();
         buildActiveDays();
         renderWeeklyDots();
         Object.assign(weightDatasets, buildWeightDatasets());
         updateProgressStats();
+        updateProfilePage();
         animateAllNumbers();
         setTimeframe(initialFrame);
         drawChartLine();

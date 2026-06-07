@@ -2022,7 +2022,7 @@
             </div>
           </div>
 
-          <span class="weight-foot">Avg 0.6 lbs/wk</span>
+          <span class="weight-foot" id="weightFoot">Avg 0.6 lbs/wk</span>
         </div>
       </div>
     </section>
@@ -2034,7 +2034,7 @@
         </button>
         <div class="food-week-label" id="foodWeekLabel">
           <span id="foodWeekTitle">This Week</span>
-          <span class="week-dates" id="foodWeekDates">Jun 1 ΓÇô 7</span>
+          <span class="week-dates" id="foodWeekDates">Jun 1 - 7</span>
         </div>
         <button class="week-nav-btn" id="foodWeekNext" type="button" aria-label="Next week" disabled="">
           <i class="fa-solid fa-chevron-right"></i>
@@ -2050,13 +2050,13 @@
         </button>
         <div class="food-week-label" id="workoutWeekLabel">
           <span id="workoutWeekTitle">This Week</span>
-          <span class="week-dates" id="workoutWeekDates">Jun 1 ΓÇô 7</span>
+          <span class="week-dates" id="workoutWeekDates">Jun 1 - 7</span>
         </div>
         <button class="week-nav-btn" id="workoutWeekNext" type="button" aria-label="Next week" disabled="">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
-      <div class="workout-days" id="workoutDays"><div class="card workout-day-card" data-day-index="6"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Sunday <span class="today-tag">Today</span></div><div class="food-day-date">Jun 7</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Full Body Strength</span><span class="meal-cal"><span>480 kcal burned</span><span class="dot">┬╖</span><span>60 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="5"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Saturday</div><div class="food-day-date">Jun 6</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Lower Body Power</span><span class="meal-cal"><span>450 kcal burned</span><span class="dot">┬╖</span><span>55 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="4"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Friday</div><div class="food-day-date">Jun 5</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Core &amp; Abs</span><span class="meal-cal"><span>220 kcal burned</span><span class="dot">┬╖</span><span>25 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="3"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Thursday</div><div class="food-day-date">Jun 4</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Upper Body Strength</span><span class="meal-cal"><span>380 kcal burned</span><span class="dot">┬╖</span><span>50 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="2"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Wednesday</div><div class="food-day-date">Jun 3</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">HIIT Cardio</span><span class="meal-cal"><span>420 kcal burned</span><span class="dot">┬╖</span><span>30 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="1"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Tuesday</div><div class="food-day-date">Jun 2</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Leg Hypertrophy</span><span class="meal-cal"><span>410 kcal burned</span><span class="dot">┬╖</span><span>50 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="0"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Monday</div><div class="food-day-date">Jun 1</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Pull Day</span><span class="meal-cal"><span>350 kcal burned</span><span class="dot">┬╖</span><span>45 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div></div>
+      <div class="workout-days" id="workoutDays"><div class="card workout-day-card" data-day-index="6"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Sunday <span class="today-tag">Today</span></div><div class="food-day-date">Jun 7</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Full Body Strength</span><span class="meal-cal"><span>480 kcal burned</span><span class="dot">·</span><span>60 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="5"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Saturday</div><div class="food-day-date">Jun 6</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Lower Body Power</span><span class="meal-cal"><span>450 kcal burned</span><span class="dot">·</span><span>55 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="4"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Friday</div><div class="food-day-date">Jun 5</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Core &amp; Abs</span><span class="meal-cal"><span>220 kcal burned</span><span class="dot">·</span><span>25 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="3"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Thursday</div><div class="food-day-date">Jun 4</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Upper Body Strength</span><span class="meal-cal"><span>380 kcal burned</span><span class="dot">·</span><span>50 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="2"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Wednesday</div><div class="food-day-date">Jun 3</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">HIIT Cardio</span><span class="meal-cal"><span>420 kcal burned</span><span class="dot">·</span><span>30 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="1"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Tuesday</div><div class="food-day-date">Jun 2</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Leg Hypertrophy</span><span class="meal-cal"><span>410 kcal burned</span><span class="dot">·</span><span>50 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div><div class="card workout-day-card" data-day-index="0"><div class="food-day-head"><div class="food-day-info"><div class="food-day-name">Monday</div><div class="food-day-date">Jun 1</div></div><div class="food-day-meal-icon"><i class="fa-solid fa-person-running"></i></div></div><div class="food-day-meal"><span class="meal-name">Pull Day</span><span class="meal-cal"><span>350 kcal burned</span><span class="dot">·</span><span>45 min</span></span><i class="fa-solid fa-chevron-right meal-chevron"></i></div></div></div>
     </section>
     <section class="page-content hidden" id="profilePage">
       <div class="profile-stack">
@@ -2068,21 +2068,21 @@
                 <span class="profile-row-icon"><i class="fa-solid fa-ruler-vertical"></i></span>
                 <span>Height</span>
               </div>
-              <span class="profile-row-value">5ft 8</span>
+              <span class="profile-row-value" id="profileHeight">5ft 8</span>
             </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-weight-scale"></i></span>
                 <span>Weight</span>
               </div>
-              <span class="profile-row-value">10st 5.9lb<span class="profile-row-sub">Goal: 10st 10lb</span></span>
+              <span class="profile-row-value" id="profileWeight">10st 5.9lb<span class="profile-row-sub" id="profileGoalWeight">Goal: 10st 10lb</span></span>
             </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-cake-candles"></i></span>
                 <span>Age</span>
               </div>
-              <span class="profile-row-value">28</span>
+              <span class="profile-row-value" id="profileAge">28</span>
             </div>
           </div>
         </div>
@@ -2095,14 +2095,14 @@
                 <span class="profile-row-icon"><i class="fa-solid fa-fire"></i></span>
                 <span>Calories</span>
               </div>
-              <span class="profile-row-value">2,500 ΓÇô 2,600<span class="profile-row-sub">kcal per day</span></span>
+              <span class="profile-row-value" id="profileCalories">2,500 - 2,600<span class="profile-row-sub">kcal per day</span></span>
             </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-leaf"></i></span>
                 <span>Protein</span>
               </div>
-              <span class="profile-row-value">135 g<span class="profile-row-sub">per day</span></span>
+              <span class="profile-row-value" id="profileProtein">135 g<span class="profile-row-sub">per day</span></span>
             </div>
           </div>
         </div>
@@ -2802,12 +2802,12 @@
       if (foodWeekOffset === 0) title = "This Week";
       else if (foodWeekOffset === -1) title = "Last Week";
       else if (foodWeekOffset === 1) title = "Next Week";
-      else title = `${MONTHS[start.getMonth()]} ${start.getDate()} ΓÇô ${MONTHS[end.getMonth()]} ${end.getDate()}`;
+      else title = `${MONTHS[start.getMonth()]} ${start.getDate()} - ${MONTHS[end.getMonth()]} ${end.getDate()}`;
 
       const sameMonth = start.getMonth() === end.getMonth();
       const dates = sameMonth
-        ? `${MONTHS[start.getMonth()]} ${start.getDate()} ΓÇô ${end.getDate()}`
-        : `${MONTHS[start.getMonth()]} ${start.getDate()} ΓÇô ${MONTHS[end.getMonth()]} ${end.getDate()}`;
+        ? `${MONTHS[start.getMonth()]} ${start.getDate()} - ${end.getDate()}`
+        : `${MONTHS[start.getMonth()]} ${start.getDate()} - ${MONTHS[end.getMonth()]} ${end.getDate()}`;
 
       foodWeekTitle.textContent = title;
       foodWeekDates.textContent = dates;
@@ -2885,7 +2885,7 @@
         { name: "Kettlebell Swings", sets: 4, reps: "20", weight: "35 lbs", cals: 90 },
         { name: "Mountain Climbers", sets: 4, reps: "30 sec", weight: "bodyweight", cals: 80 },
         { name: "Box Jumps", sets: 4, reps: "10", weight: "bodyweight", cals: 80 },
-        { name: "Battle Ropes", sets: 4, reps: "30 sec", weight: "ΓÇö", cals: 70 }
+        { name: "Battle Ropes", sets: 4, reps: "30 sec", weight: "-", cals: 70 }
       ]},
       { name: "Core & Abs", duration: 25, calories: 220, exercises: [
         { name: "Hanging Leg Raises", sets: 3, reps: "12", weight: "bodyweight", cals: 40 },
@@ -2903,10 +2903,10 @@
         { name: "Plank", sets: 3, reps: "60 sec", weight: "bodyweight", cals: 25 }
       ]},
       { name: "Run Day", duration: 40, calories: 380, exercises: [
-        { name: "Warm-Up Walk", sets: 1, reps: "5 min", weight: "ΓÇö", cals: 20 },
-        { name: "Easy Run", sets: 1, reps: "20 min", weight: "ΓÇö", cals: 180 },
-        { name: "Sprint Intervals", sets: 6, reps: "1 min", weight: "ΓÇö", cals: 150 },
-        { name: "Cool-Down Walk", sets: 1, reps: "5 min", weight: "ΓÇö", cals: 20 }
+        { name: "Warm-Up Walk", sets: 1, reps: "5 min", weight: "-", cals: 20 },
+        { name: "Easy Run", sets: 1, reps: "20 min", weight: "-", cals: 180 },
+        { name: "Sprint Intervals", sets: 6, reps: "1 min", weight: "-", cals: 150 },
+        { name: "Cool-Down Walk", sets: 1, reps: "5 min", weight: "-", cals: 20 }
       ]},
       { name: "Leg Hypertrophy", duration: 50, calories: 410, exercises: [
         { name: "Front Squat", sets: 4, reps: "8-10", weight: "155 lbs", cals: 65 },
@@ -3141,7 +3141,7 @@
             '<span>Daily total</span>' +
             '<span class="total-value">' +
               '<span>' + mealData.totalCals + ' kcal</span>' +
-              '<span class="total-dot">┬╖</span>' +
+              '<span class="total-dot">·</span>' +
               '<span>' + mealData.totalProtein + 'g</span>' +
             '</span>' +
           '</div>';
@@ -3169,12 +3169,12 @@
       if (workoutWeekOffset === 0) title = "This Week";
       else if (workoutWeekOffset === -1) title = "Last Week";
       else if (workoutWeekOffset === 1) title = "Next Week";
-      else title = `${MONTHS[start.getMonth()]} ${start.getDate()} ΓÇô ${MONTHS[end.getMonth()]} ${end.getDate()}`;
+      else title = `${MONTHS[start.getMonth()]} ${start.getDate()} - ${MONTHS[end.getMonth()]} ${end.getDate()}`;
 
       const sameMonth = start.getMonth() === end.getMonth();
       const dates = sameMonth
-        ? `${MONTHS[start.getMonth()]} ${start.getDate()} ΓÇô ${end.getDate()}`
-        : `${MONTHS[start.getMonth()]} ${start.getDate()} ΓÇô ${MONTHS[end.getMonth()]} ${end.getDate()}`;
+        ? `${MONTHS[start.getMonth()]} ${start.getDate()} - ${end.getDate()}`
+        : `${MONTHS[start.getMonth()]} ${start.getDate()} - ${MONTHS[end.getMonth()]} ${end.getDate()}`;
 
       workoutWeekTitle.textContent = title;
       workoutWeekDates.textContent = dates;
@@ -3215,7 +3215,7 @@
           card.innerHTML = head +
             '<div class="food-day-meal">' +
               '<span class="meal-name">' + workout.name + '</span>' +
-              '<span class="meal-cal"><span>' + workout.calories + ' kcal burned</span><span class="dot">┬╖</span><span>' + workout.duration + ' min</span></span>' +
+              '<span class="meal-cal"><span>' + workout.calories + ' kcal burned</span><span class="dot">·</span><span>' + workout.duration + ' min</span></span>' +
               '<i class="fa-solid fa-chevron-right meal-chevron"></i>' +
             '</div>';
           card.addEventListener("click", () => openWorkoutPopup(workout));
@@ -3287,7 +3287,7 @@
               '<span class="ex-icon"><i class="fa-solid ' + getExerciseIcon(ex.name) + '"></i></span>' +
               '<div class="ex-info">' +
                 '<span class="ex-name">' + ex.name + '</span>' +
-                '<span class="ex-detail">' + ex.sets + ' ├ù ' + ex.reps + ' ┬╖ ' + ex.weight + '</span>' +
+                '<span class="ex-detail">' + ex.sets + ' x ' + ex.reps + ' · ' + ex.weight + '</span>' +
                 (ex.note ? '<span class="ex-note">' + ex.note + '</span>' : '') +
               '</div>' +
               (ex.cals > 0 ? '<span class="ex-cals">' + ex.cals + ' kcal</span>' : '') +
