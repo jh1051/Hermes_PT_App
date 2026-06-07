@@ -612,8 +612,7 @@ function renderProfile(root){
   if(goal) rows.push({k:'Goal weight', v:fmt(goal), icon:'target'});
   const latestFat=(DATA.bodyFatHistory||[]).slice().sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
   if(latestFat) rows.push({k:'Body fat', v:`${Number(latestFat.percent).toFixed(1)}%`, icon:'scale'});
-  const avatarHtml=renderAvatarHtml(p.avatar, name);
-  root.innerHTML=`<section class="card profile-card"><div class="pad" style="padding:22px 22px 18px"><div class="prof-head"><div class="prof-avatar" aria-hidden="true">${avatarHtml}</div><div class="prof-id"><div class="prof-name">${name}</div></div></div><div class="prof-rows">${rows.map(r=>`<div class="prof-row${r.k==='Name'?' is-wide':''}"><span class="prof-ico" aria-hidden="true">${icon(r.icon)}</span><span class="prof-k">${r.k}</span><span class="prof-v">${r.v}</span></div>`).join('')}</div>${(p.notes&&p.notes.length)?`<div class="prof-notes"><div class="prof-notes-title">${icon('notepad')}Notes</div><ul class="prof-notes-list">${p.notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`:''}</div></section>`;
+  root.innerHTML=`<section class="card profile-card"><div class="pad" style="padding:22px 22px 18px"><div class="prof-rows">${rows.map(r=>`<div class="prof-row"><span class="prof-ico" aria-hidden="true">${icon(r.icon)}</span><span class="prof-k">${r.k}</span><span class="prof-v">${r.v}</span></div>`).join('')}</div>${(p.notes&&p.notes.length)?`<div class="prof-notes"><div class="prof-notes-title">${icon('notepad')}Notes</div><ul class="prof-notes-list">${p.notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`:''}</div></section>`;
 }
 function todayMacrosCard(){
   const d=latestDay();
