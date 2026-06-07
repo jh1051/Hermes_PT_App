@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#fbfbfd" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<title>Jamie's Progress</title>
+<title>Progress Dashboard</title>
 <style>*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;color:#1d1b3a;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 :root{--accent:#5b4cf7;--accent-2:#7a6cff;--accent-line:rgba(91,76,247,.18);--accent-soft:rgba(91,76,247,.08);--ink:#1d1b3a;--soft:#5a5c6a;--muted:#8b8e98;--line:rgba(20,22,35,.07);--card:#fff;--safe-bot:env(safe-area-inset-bottom,0px)}
@@ -19,6 +19,7 @@ body{min-height:100svh;padding-bottom:calc(var(--safe-bot) + 156px)}
 .top-actions{flex:0 0 auto;display:flex;align-items:center;gap:10px}
 .avatar{width:48px;height:48px;border-radius:50%;border:0;background:#fff;padding:2px;display:grid;place-items:center;flex:0 0 auto;box-shadow:0 0 0 2px var(--accent-line);appearance:none;font:inherit;color:inherit}
 .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.avatar-fallback{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-weight:850;font-size:15px;text-transform:uppercase;letter-spacing:-.02em}
 .polly-trigger{cursor:pointer;transition:transform .16s ease,box-shadow .18s ease}
 .polly-trigger:active{transform:scale(.94)}
 .polly-trigger:hover{box-shadow:0 0 0 2px var(--accent-line),0 10px 26px rgba(91,76,247,.16)}
@@ -248,7 +249,7 @@ main{margin-top:0}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="wgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b4cf7" stop-opacity=".35"/><stop offset="1" stop-color="#5b4cf7" stop-opacity="0"/></linearGradient></defs></svg>
 <div class="app">
-  <header class="top"><div class="top-text"><h1 id="pageTitle">Progress</h1></div><div class="top-actions"><button class="icon-btn" id="refreshBtn" type="button" aria-label="Refresh"><svg class="lucide lucide-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></button><button class="avatar polly-trigger" id="pollyBtn" type="button" aria-label="Open Paul check-in"><img src="https://i.postimg.cc/zX1FRpjj/11875a43-c978-48a0-abc6-bdb4da92657a-(2).png" alt="Jamie" width="48" height="48" decoding="async" loading="eager" fetchpriority="high"></button></div></header>
+  <header class="top"><div class="top-text"><h1 id="pageTitle">Progress</h1></div><div class="top-actions"><button class="icon-btn" id="refreshBtn" type="button" aria-label="Refresh"><svg class="lucide lucide-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></button><button class="avatar polly-trigger" id="pollyBtn" type="button" aria-label="Open check-in"><div id="headerAvatarContainer" style="width:100%;height:100%;border-radius:50%;overflow:hidden;"></div></button></div></header>
   <main>
     <section class="page active" data-page="progress"><div class="stack" id="page-progress"></div></section>
     <section class="page" data-page="food"><div class="stack" id="page-food"></div></section>
@@ -256,7 +257,7 @@ main{margin-top:0}
     <section class="page" data-page="profile"><div class="stack" id="page-profile"></div></section>
   </main>
 </div>
-<div class="polly-modal" id="pollyModal" aria-hidden="true"><div class="polly-sheet" role="dialog" aria-modal="true" aria-labelledby="pollyTitle"><div class="polly-pop-head"><div class="polly-pop-avatar" aria-hidden="true"><img src="https://i.postimg.cc/zX1FRpjj/11875a43-c978-48a0-abc6-bdb4da92657a-(2).png" alt="Jamie"/></div><div><div class="polly-pop-title" id="pollyTitle">Paul check-in</div></div><button class="polly-close" id="pollyClose" type="button" aria-label="Close Polly summary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="polly-summary" id="pollySummary"></div><div class="polly-fineprint">Generated from your logged dashboard data.</div></div></div>
+<div class="polly-modal" id="pollyModal" aria-hidden="true"><div class="polly-sheet" role="dialog" aria-modal="true" aria-labelledby="pollyTitle"><div class="polly-pop-head"><div class="polly-pop-avatar" id="pollyPopAvatar" aria-hidden="true"></div><div><div class="polly-pop-title" id="pollyTitle">Coach check-in</div></div><button class="polly-close" id="pollyClose" type="button" aria-label="Close summary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="polly-summary" id="pollySummary"></div><div class="polly-fineprint">Generated from your logged dashboard data.</div></div></div>
 <div class="plan-modal" id="planModal" aria-hidden="true"><div class="plan-sheet" role="dialog" aria-modal="true" aria-labelledby="planTitle"><div class="plan-head"><div class="plan-head-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div><div><div class="plan-title" id="planTitle">This week's plan</div><div class="plan-sub" id="planSub">Workout plan</div></div><button class="plan-close" id="planClose" type="button" aria-label="Close workout plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="plan-content" id="planContent"></div></div></div>
 <nav class="tabbar-wrap" aria-label="Dashboard tabs"><div class="tabbar" id="tabbar"><div class="tab-pill" id="tabPill" aria-hidden="true"></div>
   <div class="tab active" data-tab="progress" data-title="Progress" aria-label="Progress"><svg class="lucide lucide-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg><span>Progress</span></div>
@@ -297,6 +298,63 @@ let ACTIVE = 'progress';
 const LOADED = {};
 const POLL_MS = 5000;
 const $ = id => document.getElementById(id);
+function renderAvatarHtml(avatarUrl, name) {
+  if (avatarUrl) {
+    return `<img src="${avatarUrl}" alt="${name || 'User'}" />`;
+  }
+  const parts = (name || '').trim().split(/\s+/);
+  let initials = 'U';
+  if (parts.length >= 2) {
+    initials = (parts[0][0] || '') + (parts[parts.length - 1][0] || '');
+  } else if (parts.length === 1 && parts[0]) {
+    initials = parts[0].substring(0, 2);
+  }
+  initials = initials.toUpperCase() || 'U';
+  return `<div class="avatar-fallback">${initials}</div>`;
+}
+function mapProteinFields(obj) {
+  if (!obj || typeof obj !== 'object') return;
+  if (Array.isArray(obj)) {
+    obj.forEach(item => mapProteinFields(item));
+    return;
+  }
+  if (obj.proteinGrams !== undefined && obj.proteinG === undefined) {
+    obj.proteinG = obj.proteinGrams;
+  }
+  for (const k in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, k) && typeof obj[k] === 'object') {
+      mapProteinFields(obj[k]);
+    }
+  }
+}
+function postDataLoad() {
+  if (!DATA) return;
+  const p = DATA.profile || {};
+  const name = p.name || 'User';
+  const coachName = p.coachName || 'Coach';
+  const avatarUrl = p.avatar || '';
+  document.title = `${name}'s Progress`;
+  const headerAvatarContainer = $('headerAvatarContainer');
+  if (headerAvatarContainer) {
+    headerAvatarContainer.innerHTML = renderAvatarHtml(avatarUrl, name);
+  }
+  const pollyBtn = $('pollyBtn');
+  if (pollyBtn) {
+    pollyBtn.setAttribute('aria-label', `Open ${coachName} check-in`);
+  }
+  const pollyPopAvatar = $('pollyPopAvatar');
+  if (pollyPopAvatar) {
+    pollyPopAvatar.innerHTML = renderAvatarHtml(avatarUrl, name);
+  }
+  const pollyTitle = $('pollyTitle');
+  if (pollyTitle) {
+    pollyTitle.textContent = `${coachName} check-in`;
+  }
+  const pollyClose = $('pollyClose');
+  if (pollyClose) {
+    pollyClose.setAttribute('aria-label', `Close ${coachName} summary`);
+  }
+}
 const stLbToLb=(st,lb)=>(Number(st)||0)*14+(Number(lb)||0);
 const lbToStLb=(totalLb)=>({st:Math.floor(totalLb/14), lb:Math.round(totalLb%14)});
 const fmtAxisWeight=(totalLb)=>{ const w=lbToStLb(totalLb); return `${w.st}st ${w.lb}lb`; };
@@ -332,7 +390,7 @@ function goalProgress(){
   const p=DATA?.profile || {};
   const startFat=(DATA.bodyFatHistory||[]).slice().sort((a,b)=>a.date.localeCompare(b.date))[0];
   const startPct=startFat ? Number(startFat.percent) : null;
-  const goalPct=15;
+  const goalPct = Number(DATA?.profile?.goalBodyFatPercent) || 15;
   if(!startPct) return '';
   const remaining=startPct-goalPct;
   const total=Math.max(1, Math.abs(remaining));
@@ -454,6 +512,7 @@ function renderProfile(root){
   const p=DATA.profile||{};
   const start=p.startWeight, goal=p.goalWeight, current=p.currentWeight;
   const rows=[];
+  const name=p.name||'User';
   if(p.name) rows.push({k:'Name', v:p.name, icon:'user'});
   if(p.height) rows.push({k:'Height', v:p.height, icon:'ruler'});
   if(start) rows.push({k:'Start weight', v:fmt(start), icon:'scale'});
@@ -461,16 +520,19 @@ function renderProfile(root){
   if(goal) rows.push({k:'Goal weight', v:fmt(goal), icon:'target'});
   const latestFat=(DATA.bodyFatHistory||[]).slice().sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
   if(latestFat) rows.push({k:'Body fat', v:`${Number(latestFat.percent).toFixed(1)}%`, icon:'scale'});
-  root.innerHTML=`<section class="card profile-card"><div class="pad" style="padding:22px 22px 18px"><div class="prof-head"><div class="prof-avatar" aria-hidden="true"><img src="https://i.postimg.cc/zX1FRpjj/11875a43-c978-48a0-abc6-bdb4da92657a-(2).png" alt="Jamie"/></div><div class="prof-id"><div class="prof-name">${p.name||'Jamie'}</div></div></div><div class="prof-rows">${rows.map(r=>`<div class="prof-row${r.k==='Name'?' is-wide':''}"><span class="prof-ico" aria-hidden="true">${icon(r.icon)}</span><span class="prof-k">${r.k}</span><span class="prof-v">${r.v}</span></div>`).join('')}</div>${(p.notes&&p.notes.length)?`<div class="prof-notes"><div class="prof-notes-title">${icon('notepad')}Notes</div><ul class="prof-notes-list">${p.notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`:''}</div></section>`;
+  const avatarHtml=renderAvatarHtml(p.avatar, name);
+  root.innerHTML=`<section class="card profile-card"><div class="pad" style="padding:22px 22px 18px"><div class="prof-head"><div class="prof-avatar" aria-hidden="true">${avatarHtml}</div><div class="prof-id"><div class="prof-name">${name}</div></div></div><div class="prof-rows">${rows.map(r=>`<div class="prof-row${r.k==='Name'?' is-wide':''}"><span class="prof-ico" aria-hidden="true">${icon(r.icon)}</span><span class="prof-k">${r.k}</span><span class="prof-v">${r.v}</span></div>`).join('')}</div>${(p.notes&&p.notes.length)?`<div class="prof-notes"><div class="prof-notes-title">${icon('notepad')}Notes</div><ul class="prof-notes-list">${p.notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`:''}</div></section>`;
 }
 function todayMacrosCard(){
   const d=latestDay();
   if(!d) return '';
   const m=dayMacroTotals(d);
   const kcalTarget=parseKcalTarget(m.kcalTarget);
-  const proteinTarget=m.proteinTargetG||135;
-  const kcalPct=Math.max(0,Math.min(100,Math.round((m.kcal/(kcalTarget||2600))*100)));
-  const proteinPct=Math.max(0,Math.min(100,Math.round((m.proteinG/(proteinTarget||135))*100)));
+  const defaultProt = DATA?.profile?.proteinTargetG || 135;
+  const defaultCal = DATA?.profile?.calorieTarget?.max || 2600;
+  const proteinTarget=m.proteinTargetG||defaultProt;
+  const kcalPct=Math.max(0,Math.min(100,Math.round((m.kcal/(kcalTarget||defaultCal))*100)));
+  const proteinPct=Math.max(0,Math.min(100,Math.round((m.proteinG/(proteinTarget||defaultProt))*100)));
   return `<section class="macro-grid" aria-label="Today calories and protein"><div class="macro-card"><div class="macro-label">Calories</div><div class="macro-value">${fmtKcal(m.kcal)}<span class="macro-unit">kcal</span></div><div class="macro-sub">Target ${m.kcalTarget}</div><div class="macro-bar"><div class="macro-fill" style="--pct:${kcalPct}%"></div></div></div><div class="macro-card"><div class="macro-label">Protein</div><div class="macro-value">${fmtProtein(m.proteinG)}<span class="macro-unit">g</span></div><div class="macro-sub">Target ${proteinTarget}g</div><div class="macro-bar"><div class="macro-fill" style="--pct:${proteinPct}%"></div></div></div></section>`;
 }
 function renderOverview(root){
@@ -760,7 +822,7 @@ function parseKcalTarget(target){
   if(typeof target==='number') return target;
   const nums=String(target||'').match(/\d+/g)?.map(Number)||[];
   if(nums.length>=2) return nums[1];
-  return nums[0]||2600;
+  return nums[0]||(DATA?.profile?.calorieTarget?.max || 2600);
 }
 function splitDayLabel(d){
   const lbl=d.label || fmtDate(d.date) || '';
@@ -973,7 +1035,14 @@ function renderProgress(root){
 }
 const RENDERERS={progress:renderOverview,food:renderFood,workout:renderWorkout,profile:renderProfile};
 function renderPage(name, force=false){ if(!DATA) return; if(!force && LOADED[name]) return; const root=$(`page-${name}`); if(!root) return; RENDERERS[name](root); LOADED[name]=true; }
-function rerenderAll(){ Object.keys(LOADED).forEach(k=>delete LOADED[k]); for(const k of Object.keys(RENDERERS)){ try{ renderPage(k,true); }catch(err){ console.error('render failed for',k,err); } } }
+function rerenderAll(){
+  mapProteinFields(DATA);
+  postDataLoad();
+  Object.keys(LOADED).forEach(k=>delete LOADED[k]);
+  for(const k of Object.keys(RENDERERS)){
+    try{ renderPage(k,true); }catch(err){ console.error('render failed for',k,err); }
+  }
+}
 async function loadData({force=false, quiet=false}={}) {
   try{
     const res=await fetch(`${DATA_URL}?t=${Date.now()}`,{cache:'no-store'});

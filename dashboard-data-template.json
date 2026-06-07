@@ -3,7 +3,11 @@
   "updatedAt": "",
   "profile": {
     "name": "",
+    "avatar": "",
+    "coachName": "",
     "height": "",
+    "goalBodyFatPercent": null,
+    "proteinTargetG": null,
     "startWeight": { "st": 0, "lb": 0, "date": "" },
     "currentWeight": { "st": 0, "lb": 0, "date": "" },
     "goalWeight": { "st": 0, "lb": 0 },

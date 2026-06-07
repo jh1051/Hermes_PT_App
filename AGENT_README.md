@@ -15,7 +15,11 @@ Use `dashboard-data-template.json` as a reference for the exact structure. Below
 ```json
 "profile": {
   "name": "Jamie Harris",
+  "avatar": "https://url.to/avatar.png",
+  "coachName": "Paul",
   "height": "5ft 8",
+  "goalBodyFatPercent": 15,
+  "proteinTargetG": 135,
   "startWeight": { "st": 10, "lb": 7, "date": "2026-05-20" },
   "currentWeight": { "st": 10, "lb": 5.7, "date": "2026-06-06" },
   "goalWeight": { "st": 10, "lb": 10 },
@@ -26,12 +30,15 @@ Use `dashboard-data-template.json` as a reference for the exact structure. Below
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | string | User's full name |
+| `avatar` | string | (Optional) URL to the user's profile picture |
+| `coachName` | string | (Optional) Name of the personal trainer/coach |
 | `height` | string | Height as a display string |
+| `goalBodyFatPercent` | number | (Optional) Target/goal body fat percentage. Used for the body fat goal wheel |
+| `proteinTargetG` | number | (Optional) Daily protein target in grams. Falls back to 135 if missing |
 | `startWeight` | object | Starting weight in stones (`st`) and pounds (`lb`), with the `date` |
 | `currentWeight` | object | Most recent weight in stones and pounds, with the `date` |
 | `goalWeight` | object | Target/goal weight in stones and pounds |
 | `calorieTarget` | object | Daily calorie target range (`min`/`max`). The app uses `max` for the progress bar |
-| `proteinTargetG` | number | (Optional) Daily protein target in grams. Falls back to 150 if missing |
 
 ## Weigh-ins
 

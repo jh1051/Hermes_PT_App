@@ -3,7 +3,11 @@
   "updatedAt": "2026-06-07T14:15:41Z",
   "profile": {
     "name": "Jamie Harris",
+    "avatar": "https://i.postimg.cc/zX1FRpjj/11875a43-c978-48a0-abc6-bdb4da92657a-(2).png",
+    "coachName": "Paul",
     "height": "5ft 8",
+    "goalBodyFatPercent": 15,
+    "proteinTargetG": 135,
     "startWeight": { "st": 10, "lb": 7, "date": "2026-05-20" },
     "currentWeight": { "st": 10, "lb": 5.7, "date": "2026-06-06" },
     "goalWeight": { "st": 10, "lb": 10 },
