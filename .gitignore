@@ -1,0 +1,17 @@
+# Never commit secrets or runtime junk
+.env
+auth.json
+backup_keys/
+*.lock
+*.pid
+*.log
+*.tmp
+__pycache__/
+.pytest_cache/
+.cache/
+.local/
+image_cache/
+audio_cache/
+logs/
+venv/
+.venv/

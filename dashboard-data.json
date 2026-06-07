@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-06-07T14:15:41Z",
+  "profile": {
+    "name": "Jamie Harris",
+    "height": "5ft 8",
+    "startWeight": { "st": 10, "lb": 7, "date": "2026-05-20" },
+    "currentWeight": { "st": 10, "lb": 5.7, "date": "2026-06-06" },
+    "goalWeight": { "st": 10, "lb": 10 },
+    "calorieTarget": { "min": 2500, "max": 2600 }
+  },
+  "weighIns": [
+    { "date": "2026-05-20", "st": 10, "lb": 7, "note": "Start weight" },
+    { "date": "2026-06-03", "st": 10, "lb": 6, "note": "Current weight" },
+    { "date": "2026-06-04", "st": 10, "lb": 5.7, "kg": 66.1, "note": "Morning weigh-in; scale displayed BMI 20.4, calculated BMI from height/weight is 22.2" },
+    { "date": "2026-06-05", "st": 10, "lb": 5.9, "kg": 66.2, "note": "Morning weigh-in; scale BMI 22.4; body fat 20.7%" },
+    { "date": "2026-06-06", "st": 10, "lb": 5.7, "kg": 66.1, "note": "Morning weigh-in; scale BMI 22.3; body fat 16.6%" }
+  ],
+  "days": [
+    {
+      "date": "2026-06-07",
+      "food": [
+        { "name": "Greek yogurt 1.5% fat", "quantity": "250g", "kcal": 185, "proteinGrams": 25.0, "note": "On its own, no toppings." },
+        { "name": "Omelette with ham and cheese", "quantity": "3 eggs", "kcal": 490, "proteinGrams": 36.0,
+          "ingredients": [
+            { "name": "Eggs", "quantity": "3", "kcal": 215, "proteinGrams": 18 },
+            { "name": "Ham", "quantity": "2 (~60g)", "kcal": 75, "proteinGrams": 10 },
+            { "name": "Cheese", "quantity": "~30g", "kcal": 100, "proteinGrams": 8 }
+          ]
+        },
+        { "name": "Strawberry yogurt+quark pouch", "quantity": "200g", "kcal": 144, "proteinGrams": 24.0, "note": "Melkan. 72 kcal / 12g protein per 100g." },
+        { "name": "Banana", "kcal": 105, "proteinGrams": 1.3, "note": "Medium. Afternoon snack." }
+      ],
+      "workouts": []
+    },
+    {
+      "date": "2026-06-06",
+      "food": [
+        { "name": "Banana", "kcal": 105, "proteinGrams": 1.3, "note": "Medium." },
+        { "name": "Peanut butter", "quantity": "40g", "kcal": 238, "proteinGrams": 8.8 },
+        { "name": "Omelette with cheese", "quantity": "3 eggs", "kcal": 400, "proteinGrams": 26.5, "note": "Estimated 30g cheese." },
+        { "name": "Falafel wraps", "quantity": "2", "kcal": 940, "proteinGrams": 32.0, "note": "With tzatziki, bell peppers and onion.",
+          "ingredients": [
+            { "name": "Wrap tortillas", "quantity": "2 medium", "kcal": 360, "proteinGrams": 10 },
+            { "name": "Falafel", "quantity": "2 wrap portions", "kcal": 440, "proteinGrams": 16 },
+            { "name": "Tzatziki", "quantity": "2 servings", "kcal": 100, "proteinGrams": 4 },
+            { "name": "Bell peppers and onion", "quantity": "2 wrap portions", "kcal": 40, "proteinGrams": 2 }
+          ]
+        },
+        { "name": "Greek yoghurt and berries", "kcal": 225, "proteinGrams": 25.5,
+          "ingredients": [
+            { "name": "Greek yoghurt 1.5% fat", "quantity": "250g", "kcal": 185, "proteinGrams": 25.0 },
+            { "name": "Berries", "quantity": "~60g", "kcal": 40, "proteinGrams": 0.5 }
+          ]
+        }
+      ],
+      "workouts": [
+        {
+          "name": "Easy run around Haagse Bos",
+          "durationMinutes": 14,
+          "kcal": 0,
+          "note": "2.14km in 13:37 at 6:21/km. Felt very tired and legs felt heavy.",
+          "exercises": [
+            { "name": "Run", "sets": 1, "reps": "13:37", "weight": "—", "note": "Average pace 6:21/km; Haagse Bos. Heavy legs, tired." }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "food": [
+        { "name": "Omelette", "quantity": "3 eggs", "kcal": 280, "proteinGrams": 19, "note": "Late morning meal; no protein powder today" },
+        { "name": "Banana", "kcal": 105, "proteinGrams": 1, "note": "Afternoon snack" },
+        { "name": "Apple with peanut butter", "quantity": "1 apple + 1.5 tsp", "kcal": 130, "proteinGrams": 3, "note": "Pink Lady apple." },
+        { "name": "Burgers, sweet potato fries, fried egg, veg and cheese", "kcal": 796, "proteinGrams": 61, "note": "Dinner.",
+          "ingredients": [
+            { "name": "Lean beef burgers", "quantity": "3 (240g)", "kcal": 336, "proteinGrams": 41, "note": "Magere runderburgers; 3 of 5." },
+            { "name": "Sweet potato fries", "quantity": "180g", "kcal": 155, "proteinGrams": 3, "note": "Homemade." },
+            { "name": "Fried egg", "quantity": "1", "kcal": 125, "proteinGrams": 6 },
+            { "name": "Broccoli and peas", "quantity": "1 portion", "kcal": 100, "proteinGrams": 6 },
+            { "name": "Grated cheese", "quantity": "small sprinkle", "kcal": 80, "proteinGrams": 5 }
+          ]
+        },
+        { "name": "Chocolate protein mousse", "kcal": 180, "proteinGrams": 27.7, "note": "Late night snack.",
+          "ingredients": [
+            { "name": "Chocolate whey protein", "quantity": "1 scoop (~30g)", "kcal": 120, "proteinGrams": 25 },
+            { "name": "Whole milk", "quantity": "80ml", "kcal": 50, "proteinGrams": 2.7 },
+            { "name": "Mousse fluff", "quantity": "n/a", "kcal": 10, "proteinGrams": 0 }
+          ]
+        }
+      ],
+      "workouts": [
+        {
+          "name": "Friday full-body workout",
+          "durationMinutes": 15,
+          "kcal": 0,
+          "note": "Lost count slightly on final sit-ups and curls; totals are approximate.",
+          "exercises": [
+            { "name": "Push-ups", "sets": 3, "reps": "15 / 10 / 10", "note": "Total 35" },
+            { "name": "Sit-ups", "sets": 3, "reps": "20 / 20 / 20-25", "note": "Total 60-65 approx" },
+            { "name": "Barbell curls", "sets": 3, "reps": "25 / 25 / 25-30", "weight": "6kg barbell approx", "note": "Total 75-80 approx" }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "food": [
+        { "name": "Vanilla protein mousse", "quantity": "2 scoops", "kcal": 280, "proteinGrams": 50, "note": "Breakfast." },
+        { "name": "Omelette", "quantity": "3 eggs", "kcal": 280, "proteinGrams": 19, "note": "Lunch" },
+        { "name": "Banana", "kcal": 105, "proteinGrams": 1, "note": "Breakfast" },
+        { "name": "Chicken pasta with polpa tomato sauce", "kcal": 657, "proteinGrams": 61, "note": "Dinner; 90g dry pasta, ~138g chicken, ~100g passata/polpa, half Oxo cube, cheese estimated ~20g" },
+        { "name": "Apple and peanut butter", "kcal": 280, "proteinGrams": 7, "note": "Evening snack; peanut butter portion estimated" }
+      ],
+      "workouts": [
+        { "name": "Intense walk", "durationMinutes": 10, "kcal": 0, "note": "~10 min" },
+        { "name": "Pre-run stretch", "durationMinutes": 5, "kcal": 0, "note": "~5 min before evening run" },
+        { "name": "Run", "durationMinutes": 20, "kcal": 0, "note": "~20 min; roughly 1.5 laps of Haagse Bos" }
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "food": [
+        { "name": "Chocolate protein mousse", "quantity": "2 scoops + 80ml milk", "kcal": 280, "proteinGrams": 50 },
+        { "name": "Omelette", "quantity": "3 eggs", "kcal": 280, "proteinGrams": 19, "note": "~19-20g protein from eggs" },
+        { "name": "Banana", "kcal": 105, "proteinGrams": 1 },
+        { "name": "Apple", "kcal": 95, "proteinGrams": 0 },
+        { "name": "Pizza wraps with chicken and cheese", "quantity": "2", "kcal": 780, "proteinGrams": 45 }
+      ],
+      "workouts": [
+        { "name": "Push/Pull mix", "durationMinutes": 20, "kcal": 0, "note": "Push-ups: 40, Barbell curls: 100, Ab crunches: 20, Sit-ups: 50" }
+      ]
+    },
+    {
+      "date": "2026-06-02",
+      "food": [
+        { "name": "Omelette", "quantity": "3 eggs", "kcal": 280, "proteinGrams": 19, "note": "~18-19g protein from eggs" },
+        { "name": "Protein shake", "kcal": 150, "proteinGrams": 25 },
+        { "name": "Protein mousse", "quantity": "2", "kcal": 280, "proteinGrams": 42, "note": "~41.6g protein" },
+        { "name": "Southern fried chicken, lettuce, chips", "kcal": 950, "proteinGrams": 40, "note": "Dinner" }
+      ],
+      "workouts": [
+        { "name": "Run", "durationMinutes": 20, "kcal": 0, "note": "20 min easy; shortened from 30 due to soreness. Route: about 1.25 laps around Haagse Bos." }
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "food": [
+        { "name": "Omelette", "quantity": "2 eggs", "kcal": 190, "proteinGrams": 13, "note": "~12-13g protein from eggs" },
+        { "name": "Spaghetti bolognese", "kcal": 750, "proteinGrams": 35, "note": "Good mince portion with pasta and cheese" }
+      ],
+      "workouts": [
+        { "name": "Push workout", "durationMinutes": 15, "kcal": 0, "note": "Push-ups 13/11/7, Sit-ups 25/15/15, Barbell curls 25/25/20 at 6kg" }
+      ]
+    },
+    {
+      "date": "2026-05-31",
+      "food": [
+        { "name": "Omelette", "quantity": "4 eggs", "kcal": 380, "proteinGrams": 25, "note": "~25g protein from eggs" },
+        { "name": "Banana", "kcal": 105, "proteinGrams": 1 },
+        { "name": "Massaman curry", "kcal": 700, "proteinGrams": 30, "note": "Good if includes protein portion" },
+        { "name": "Apple and peanut butter", "kcal": 280, "proteinGrams": 7 },
+        { "name": "Protein mousse", "quantity": "2", "kcal": 280, "proteinGrams": 42, "note": "Each: 30g protein powder + 80ml milk, ~20.8g protein; total ~41.6g" }
+      ],
+      "workouts": []
+    },
+    {
+      "date": "2026-05-30",
+      "food": [],
+      "workouts": []
+    },
+    {
+      "date": "2026-05-29",
+      "food": [
+        { "name": "Pizza wraps with cheese, bacon, chicken", "kcal": 850, "proteinGrams": 50 }
+      ],
+      "workouts": []
+    }
+  ]
+}

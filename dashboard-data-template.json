@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "",
+  "profile": {
+    "name": "",
+    "height": "",
+    "startWeight": { "st": 0, "lb": 0, "date": "" },
+    "currentWeight": { "st": 0, "lb": 0, "date": "" },
+    "goalWeight": { "st": 0, "lb": 0 },
+    "calorieTarget": { "min": 0, "max": 0 }
+  },
+  "weighIns": [
+    {
+      "date": "YYYY-MM-DD",
+      "st": 0,
+      "lb": 0,
+      "note": ""
+    }
+  ],
+  "days": [
+    {
+      "date": "YYYY-MM-DD",
+      "food": [
+        {
+          "name": "",
+          "quantity": "",
+          "kcal": 0,
+          "proteinGrams": 0,
+          "note": "",
+          "ingredients": [
+            {
+              "name": "",
+              "quantity": "",
+              "kcal": 0,
+              "proteinGrams": 0
+            }
+          ]
+        }
+      ],
+      "workouts": [
+        {
+          "name": "",
+          "durationMinutes": 0,
+          "kcal": 0,
+          "note": "",
+          "exercises": [
+            {
+              "name": "",
+              "sets": 0,
+              "reps": "",
+              "weight": "",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
