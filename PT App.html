@@ -704,19 +704,7 @@
       animation: fadeIn 400ms 1300ms ease-out forwards;
     }
 
-    #wStartDot,
-    #wEndDot {
-      opacity: 0;
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    #wEndHalo {
-      opacity: 0;
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
+    
     @keyframes goalLineIn {
       to { opacity: 0.45; }
     }
@@ -1029,6 +1017,7 @@
       transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
       max-height: 88vh;
       overflow-y: auto;
+      overscroll-behavior: contain;
       position: relative;
       box-shadow: 0 -8px 30px rgba(20, 61, 34, 0.15);
     }
@@ -1366,6 +1355,7 @@
       transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
       max-height: 88vh;
       overflow-y: auto;
+      overscroll-behavior: contain;
       position: relative;
       box-shadow: 0 -8px 30px rgba(20, 61, 34, 0.15);
     }
@@ -1569,6 +1559,7 @@
       transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
       max-height: 88vh;
       overflow-y: auto;
+      overscroll-behavior: contain;
       position: relative;
       box-shadow: 0 -8px 30px rgba(20, 61, 34, 0.15);
     }
@@ -2014,10 +2005,6 @@
 
               <g id="wXLabels"></g>
 
-              <circle id="wStartDot" cx="0" cy="0" r="3.5" fill="#3d8a5a" />
-              <circle id="wEndHalo" cx="0" cy="0" r="11" fill="#3d8a5a" opacity="0.18" />
-              <circle id="wEndDot" cx="0" cy="0" r="5.5" fill="#3d8a5a" stroke="#ffffff" stroke-width="2.5" />
-
               <line id="wHoverLine" x1="0" y1="0" x2="0" y2="0" stroke="#3d8a5a" stroke-width="1" stroke-dasharray="2 3" opacity="0" />
               <circle id="wHoverDot" cx="0" cy="0" r="6" fill="#3d8a5a" stroke="#ffffff" stroke-width="2.5" opacity="0" />
             </svg>
@@ -2065,16 +2052,16 @@
     </section>
     <section class="page-content hidden" id="profilePage">
       <div class="profile-stack">
-        <div class="card profile-header-card">
-          <div class="profile-avatar" id="profileAvatar"></div>
-          <div class="profile-info">
-            <div class="profile-name" id="profileName">--</div>
-            <div class="profile-since" id="profileSince">Client</div>
-          </div>
-        </div>
         <div class="card profile-card">
           <div class="profile-section-title">Stats</div>
           <div class="profile-rows">
+            <div class="profile-row">
+              <div class="profile-row-label">
+                <span class="profile-row-icon"><i class="fa-solid fa-user"></i></span>
+                <span>Name</span>
+              </div>
+              <span class="profile-row-value" id="profileName">--</span>
+            </div>
             <div class="profile-row">
               <div class="profile-row-label">
                 <span class="profile-row-icon"><i class="fa-solid fa-ruler-vertical"></i></span>
@@ -2276,7 +2263,7 @@
               w.exercises.forEach(function(ex) {
                 workout.exercises.push({
                   name: ex.name,
-                  sets: ex.sets || 1,
+                  sets: ex.sets || 0,
                   reps: ex.reps || "",
                   weight: ex.weight || "\u2014",
                   cals: ex.kcal || 0,
@@ -2444,9 +2431,9 @@
 
     const wLinePath = document.getElementById("wLine");
     const wFillPath = document.getElementById("wFill");
-    const wEndDot = document.getElementById("wEndDot");
-    const wEndHalo = document.getElementById("wEndHalo");
-    const wStartDot = document.getElementById("wStartDot");
+    const wGridEl = document.getElementById("wGrid");
+    const wYLabelsEl = document.getElementById("wYLabels");
+    const wXLabelsEl = document.getElementById("wXLabels");
     const wGridEl = document.getElementById("wGrid");
     const wYLabelsEl = document.getElementById("wYLabels");
     const wXLabelsEl = document.getElementById("wXLabels");
@@ -2468,15 +2455,6 @@
       const fillPath = `${linePath} L ${points[points.length - 1].x.toFixed(2)},${PLOT_Y1} L ${PLOT_X0.toFixed(2)},${PLOT_Y1} Z`;
       wLinePath.setAttribute("d", linePath);
       wFillPath.setAttribute("d", fillPath);
-
-      const last = points[points.length - 1];
-      const first = points[0];
-      wEndDot.setAttribute("cx", last.x);
-      wEndDot.setAttribute("cy", last.y);
-      wEndHalo.setAttribute("cx", last.x);
-      wEndHalo.setAttribute("cy", last.y);
-      wStartDot.setAttribute("cx", first.x);
-      wStartDot.setAttribute("cy", first.y);
     }
 
     function toStoneLbs(w) {
@@ -2715,27 +2693,7 @@
       requestAnimationFrame(step);
     }
 
-    function popEndDot() {
-      if (!wStartDot || !wEndDot) return;
-      const delay = 1400;
-      const animate = (el, dur) => {
-        el.style.opacity = "0";
-        el.style.transform = "scale(0.3)";
-        const start = performance.now() + delay;
-        const step = (now) => {
-          if (now < start) { requestAnimationFrame(step); return; }
-          const t = Math.min(1, (now - start) / dur);
-          const e = 1 - Math.pow(1 - t, 3);
-          el.style.opacity = String(e);
-          el.style.transform = "scale(" + (0.3 + 0.7 * e) + ")";
-          if (t < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      };
-      animate(wStartDot, 350);
-      animate(wEndHalo, 400);
-      setTimeout(() => animate(wEndDot, 400), 100);
-    }
+    function popEndDot() {}
 
     const foodWeekTitle = document.getElementById("foodWeekTitle");
     const foodWeekDates = document.getElementById("foodWeekDates");
@@ -2909,7 +2867,7 @@
             w.exercises.forEach(function(ex) {
               allExs.push({
                 name: ex.name,
-                sets: ex.sets || 1,
+                sets: ex.sets || 0,
                 reps: ex.reps || "",
                 weight: ex.weight || "\u2014",
                 cals: ex.cals || 0,
@@ -2978,7 +2936,7 @@
             '<span>Daily total</span>' +
             '<span class="total-value">' +
               '<span>' + mealData.totalCals + ' kcal</span>' +
-              '<span class="total-dot">·</span>' +
+              '<span class="total-dot"> </span>' +
               '<span>' + mealData.totalProtein + 'g</span>' +
             '</span>' +
           '</div>';
@@ -3052,7 +3010,7 @@
           card.innerHTML = head +
             '<div class="food-day-meal">' +
               '<span class="meal-name">' + workout.name + '</span>' +
-              '<span class="meal-cal"><span>' + workout.calories + ' kcal burned</span><span class="dot">·</span><span>' + workout.duration + ' min</span></span>' +
+              '<span class="meal-cal"><span>' + workout.calories + ' kcal burned</span><span class="dot"> </span><span>' + workout.duration + ' min</span></span>' +
               '<i class="fa-solid fa-chevron-right meal-chevron"></i>' +
             '</div>';
           card.addEventListener("click", () => openWorkoutPopup(workout));
@@ -3091,11 +3049,13 @@
       }
       mealPopup.classList.add("visible");
       mealPopup.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     }
 
     function closeMealPopup() {
       mealPopup.classList.remove("visible");
       mealPopup.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     }
 
     mealPopupClose.addEventListener("click", closeMealPopup);
@@ -3124,15 +3084,17 @@
               '<span class="ex-icon"><i class="fa-solid ' + getExerciseIcon(ex.name) + '"></i></span>' +
               '<div class="ex-info">' +
                 '<span class="ex-name">' + ex.name + '</span>' +
-                '<span class="ex-detail">' + ex.sets + ' × ' + ex.reps + ' · ' + ex.weight + '</span>' +
+                '<span class="ex-detail">' + ex.sets + ' x ' + ex.reps + '  ' + ex.weight + '</span>' +
                 (ex.note ? '<span class="ex-note">' + ex.note + '</span>' : '') +
               '</div>' +
               (ex.cals > 0 ? '<span class="ex-cals">' + ex.cals + ' kcal</span>' : '') +
             '</div>'
         )
         .join("");
+      workoutPopupContent.scrollTop = 0;
       workoutPopup.classList.add("visible");
       workoutPopup.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     }
 
     function getExerciseIcon(name) {
@@ -3142,6 +3104,7 @@
     function closeWorkoutPopup() {
       workoutPopup.classList.remove("visible");
       workoutPopup.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     }
 
     workoutPopupClose.addEventListener("click", closeWorkoutPopup);
@@ -3245,11 +3208,13 @@
       renderCalendar();
       calendarPopup.classList.add("visible");
       calendarPopup.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     }
 
     function closeCalendarPopup() {
       calendarPopup.classList.remove("visible");
       calendarPopup.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     }
 
     calendarMonthPrev.addEventListener("click", () => {
@@ -3300,10 +3265,15 @@
       var protPctEl = sumCards[1] ? sumCards[1].querySelector(".summary-bar-fill") : null;
       var calsPctVal = sumCards[0] ? sumCards[0].querySelector(".pct-value") : null;
       var protPctVal = sumCards[1] ? sumCards[1].querySelector(".pct-value") : null;
-      var calsRemain = sumCards[0] ? sumCards[0].querySelector(".summary-bar-labels span:last-child") : null;
-      var protRemain = sumCards[1] ? sumCards[1].querySelector(".summary-bar-labels span:last-child") : null;
+      var calsLabels = sumCards[0] ? sumCards[0].querySelector(".summary-bar-labels") : null;
+      var protLabels = sumCards[1] ? sumCards[1].querySelector(".summary-bar-labels") : null;
+      var calsRemain = calsLabels ? calsLabels.lastElementChild : null;
+      var protRemain = protLabels ? protLabels.lastElementChild : null;
       var profile = appData && appData.profile;
-      var calTarget = profile ? (profile.calorieTarget && (profile.calorieTarget.max || profile.calorieTarget) || 0) : 0;
+      var calTarget = 0;
+      if (profile && profile.calorieTarget) {
+        calTarget = Number(profile.calorieTarget.max) || Number(profile.calorieTarget) || 0;
+      }
       var protTarget = profile ? (profile.proteinTargetG || 0) : 0;
       if (calsGoalEl) calsGoalEl.textContent = "Goal: " + calTarget.toLocaleString() + " kcal";
       if (protGoalEl) protGoalEl.textContent = "Goal: " + protTarget + " g";
@@ -3324,8 +3294,26 @@
       animateBar(protPctEl, protPct);
       if (calsPctVal) { calsPctVal.dataset.target = calsPct; }
       if (protPctVal) { protPctVal.dataset.target = protPct; }
-      if (calsRemain) calsRemain.textContent = Math.max(0, calTarget - cals) + " kcal remaining";
-      if (protRemain) protRemain.textContent = Math.max(0, protTarget - protein) + " g remaining";
+      if (calsRemain) {
+        if (calTarget > 0) {
+          var calDiff = Math.round(calTarget - cals);
+          if (calDiff > 0) calsRemain.textContent = calDiff + " kcal remaining";
+          else if (calDiff === 0) calsRemain.textContent = "Goal reached";
+          else calsRemain.textContent = Math.abs(calDiff) + " kcal over goal";
+        } else {
+          calsRemain.textContent = "- kcal remaining";
+        }
+      }
+      if (protRemain) {
+        if (protTarget > 0) {
+          var protDiff = Math.round(protTarget - protein);
+          if (protDiff > 0) protRemain.textContent = protDiff + " g remaining";
+          else if (protDiff === 0) protRemain.textContent = "Goal reached";
+          else protRemain.textContent = Math.abs(protDiff) + " g over goal";
+        } else {
+          protRemain.textContent = "- g remaining";
+        }
+      }
       if (weightEl) {
         var wi = (appData && appData.weighIns) || [];
         var latest = wi.length > 0 ? wi[wi.length - 1] : null;
@@ -3346,34 +3334,6 @@
       var p = appData.profile;
       var nEl = document.getElementById("profileName");
       if (nEl && p.name) nEl.textContent = p.name;
-      
-      var wi = (appData.weighIns || []);
-      var avEl = document.getElementById("profileAvatar");
-      if (avEl && p.name) {
-        if (p.avatar) {
-          avEl.innerHTML = '<img src="' + p.avatar + '" alt="' + p.name + '" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;" />';
-        } else {
-          var parts = p.name.trim().split(/\s+/);
-          var initials = 'U';
-          if (parts.length >= 2) {
-            initials = parts[0][0] + parts[parts.length - 1][0];
-          } else if (parts.length === 1 && parts[0]) {
-            initials = parts[0].substring(0, 2);
-          }
-          avEl.innerHTML = '<div style="width:100%;height:100%;display:grid;place-items:center;text-transform:uppercase;">' + initials.toUpperCase() + '</div>';
-        }
-      }
-      var sinceEl = document.getElementById("profileSince");
-      if (sinceEl) {
-        var startW = p.startWeight || (wi.length > 0 ? wi[0] : null);
-        if (startW && startW.date) {
-          var startDate = new Date(startW.date + "T12:00:00");
-          var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-          sinceEl.textContent = "Client since " + months[startDate.getMonth()] + " " + startDate.getFullYear();
-        } else {
-          sinceEl.textContent = "Client";
-        }
-      }
 
       var hEl = document.getElementById("profileHeight");
       if (hEl && p.height) hEl.textContent = p.height;

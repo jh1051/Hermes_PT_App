@@ -6,6 +6,7 @@
     "avatar": "",
     "coachName": "",
     "height": "",
+    "age": null,
     "goalBodyFatPercent": null,
     "proteinTargetG": null,
     "startWeight": { "st": 0, "lb": 0, "date": "" },
@@ -53,6 +54,7 @@
               "sets": 0,
               "reps": "",
               "weight": "",
+              "kcal": 0,
               "note": ""
             }
           ]
