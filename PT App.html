@@ -2065,6 +2065,13 @@
     </section>
     <section class="page-content hidden" id="profilePage">
       <div class="profile-stack">
+        <div class="card profile-header-card">
+          <div class="profile-avatar" id="profileAvatar"></div>
+          <div class="profile-info">
+            <div class="profile-name" id="profileName">--</div>
+            <div class="profile-since" id="profileSince">Client</div>
+          </div>
+        </div>
         <div class="card profile-card">
           <div class="profile-section-title">Stats</div>
           <div class="profile-rows">
@@ -3339,6 +3346,35 @@
       var p = appData.profile;
       var nEl = document.getElementById("profileName");
       if (nEl && p.name) nEl.textContent = p.name;
+      
+      var wi = (appData.weighIns || []);
+      var avEl = document.getElementById("profileAvatar");
+      if (avEl && p.name) {
+        if (p.avatar) {
+          avEl.innerHTML = '<img src="' + p.avatar + '" alt="' + p.name + '" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;" />';
+        } else {
+          var parts = p.name.trim().split(/\s+/);
+          var initials = 'U';
+          if (parts.length >= 2) {
+            initials = parts[0][0] + parts[parts.length - 1][0];
+          } else if (parts.length === 1 && parts[0]) {
+            initials = parts[0].substring(0, 2);
+          }
+          avEl.innerHTML = '<div style="width:100%;height:100%;display:grid;place-items:center;text-transform:uppercase;">' + initials.toUpperCase() + '</div>';
+        }
+      }
+      var sinceEl = document.getElementById("profileSince");
+      if (sinceEl) {
+        var startW = p.startWeight || (wi.length > 0 ? wi[0] : null);
+        if (startW && startW.date) {
+          var startDate = new Date(startW.date + "T12:00:00");
+          var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+          sinceEl.textContent = "Client since " + months[startDate.getMonth()] + " " + startDate.getFullYear();
+        } else {
+          sinceEl.textContent = "Client";
+        }
+      }
+
       var hEl = document.getElementById("profileHeight");
       if (hEl && p.height) hEl.textContent = p.height;
       var wEl = document.getElementById("profileWeight");
