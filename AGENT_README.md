@@ -1,4 +1,4 @@
-# PaulThePT Dashboard — Agent Guide
+# PT Dashboard — Agent Guide
 
 This is a personal training dashboard app. All user data lives in a single JSON file. As an AI agent, your job is to read, understand, and write data to that file in the correct structure.
 
@@ -14,16 +14,16 @@ Use `dashboard-data-template.json` as a reference for the exact structure. Below
 
 ```json
 "profile": {
-  "name": "Jamie Harris",
+  "name": "Client Name",
   "avatar": "https://url.to/avatar.png",
-  "coachName": "Paul",
-  "height": "5ft 8",
+  "coachName": "Coach Name",
+  "height": "5ft 10",
   "goalBodyFatPercent": 15,
-  "proteinTargetG": 135,
-  "startWeight": { "st": 10, "lb": 7, "date": "2026-05-20" },
-  "currentWeight": { "st": 10, "lb": 5.7, "date": "2026-06-06" },
-  "goalWeight": { "st": 10, "lb": 10 },
-  "calorieTarget": { "min": 2500, "max": 2600 }
+  "proteinTargetG": 150,
+  "startWeight": { "st": 12, "lb": 0, "date": "2026-01-01" },
+  "currentWeight": { "st": 11, "lb": 8, "date": "2026-06-01" },
+  "goalWeight": { "st": 11, "lb": 0 },
+  "calorieTarget": { "min": 2400, "max": 2600 }
 }
 ```
 
@@ -44,7 +44,7 @@ Use `dashboard-data-template.json` as a reference for the exact structure. Below
 
 ```json
 "weighIns": [
-  { "date": "2026-05-20", "st": 10, "lb": 7, "note": "Start weight" }
+  { "date": "2026-01-01", "st": 12, "lb": 0, "note": "Starting weight" }
 ]
 ```
 
@@ -63,13 +63,14 @@ Each day has a `date` key (`YYYY-MM-DD`), a `food` array, and a `workouts` array
 
 ```json
 {
-  "name": "Greek yogurt 1.5% fat",
-  "quantity": "250g",
-  "kcal": 185,
-  "proteinGrams": 25.0,
-  "note": "On its own, no toppings.",
+  "name": "Chicken breast with rice",
+  "quantity": "200g chicken, 150g rice",
+  "kcal": 450,
+  "proteinGrams": 48,
+  "note": "Grilled, no sauce.",
   "ingredients": [
-    { "name": "Eggs", "quantity": "3", "kcal": 215, "proteinGrams": 18 }
+    { "name": "Chicken breast", "quantity": "200g", "kcal": 330, "proteinGrams": 40 },
+    { "name": "White rice", "quantity": "150g cooked", "kcal": 120, "proteinGrams": 8 }
   ]
 }
 ```
@@ -87,12 +88,12 @@ Each day has a `date` key (`YYYY-MM-DD`), a `food` array, and a `workouts` array
 
 ```json
 {
-  "name": "Easy run around Haagse Bos",
-  "durationMinutes": 14,
-  "kcal": 0,
-  "note": "2.14km in 13:37 at 6:21/km",
+  "name": "Upper Body Push Workout",
+  "durationMinutes": 45,
+  "kcal": 320,
+  "note": "Felt strong, increased bench by 2.5kg.",
   "exercises": [
-    { "name": "Run", "sets": 1, "reps": "13:37", "weight": "\u2014", "note": "Average pace 6:21/km" }
+    { "name": "Bench Press", "sets": 4, "reps": "8-10", "weight": "60kg", "note": "Last set AMRAP - got 11" }
   ]
 }
 ```

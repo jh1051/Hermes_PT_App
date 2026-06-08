@@ -1,8 +1,8 @@
-# Hermes PT App
+# PT Dashboard App
 
 Personal trainer dashboard app — tracks meals, workouts, water intake, weight, and more.
 
-This repo is a local development copy. The live version runs on a Hermes host at:
+This repo is a local development copy. The live version runs on a server at:
 - `/root/dashboard/index.html`
 - `/root/dashboard/dashboard-data.json`
 - `/root/dashboard/server.py`

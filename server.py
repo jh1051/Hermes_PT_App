@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dashboard data server for PaulThePT. Serves the Paul dashboard JSON."""
+"""Dashboard data server. Serves the PT dashboard JSON."""
 import http.server
 import socketserver
 import os
@@ -27,5 +27,5 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     with ReusableTCPServer(("0.0.0.0", PORT), Handler) as httpd:
-        print(f"Paul dashboard server on :{PORT}, cwd={os.getcwd()}")
+        print(f"Dashboard server on :{PORT}, cwd={os.getcwd()}")
         httpd.serve_forever()
