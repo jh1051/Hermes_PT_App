@@ -2714,6 +2714,18 @@
       return out;
     }
 
+    function buildDayOrder(today, weekStart) {
+      const msDay = 86400000;
+      const todayOffset = Math.round((today - weekStart) / msDay);
+      if (todayOffset < 0 || todayOffset > 6) {
+        return [6, 5, 4, 3, 2, 1, 0];
+      }
+      const order = [];
+      for (let j = todayOffset; j >= 0; j--) order.push(j);
+      for (let j = 6; j > todayOffset; j--) order.push(j);
+      return order;
+    }
+
     function renderWeeklyDots() {
       const container = document.getElementById("weeklyDaysContainer");
       if (!container) return;
@@ -2897,7 +2909,9 @@
       start.setDate(start.getDate() + foodWeekOffset * 7);
 
       foodDaysEl.innerHTML = "";
-      for (let i = 6; i >= 0; i--) {
+      const order = buildDayOrder(today, start);
+      for (let idx = 0; idx < 7; idx++) {
+        const i = order[idx];
         const date = new Date(start);
         date.setDate(date.getDate() + i);
         const mealData = getMealForDay(date, i, foodWeekOffset);
@@ -2979,7 +2993,9 @@
       start.setDate(start.getDate() + workoutWeekOffset * 7);
 
       workoutDaysEl.innerHTML = "";
-      for (let i = 6; i >= 0; i--) {
+      const order = buildDayOrder(today, start);
+      for (let idx = 0; idx < 7; idx++) {
+        const i = order[idx];
         const date = new Date(start);
         date.setDate(date.getDate() + i);
         const workout = getWorkoutForDay(date, i, workoutWeekOffset);
