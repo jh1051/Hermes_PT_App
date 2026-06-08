@@ -2804,15 +2804,7 @@
     }
 
     function buildDayOrder(today, weekStart) {
-      const msDay = 86400000;
-      const todayOffset = Math.round((today - weekStart) / msDay);
-      if (todayOffset < 0 || todayOffset > 6) {
-        return [6, 5, 4, 3, 2, 1, 0];
-      }
-      const order = [];
-      for (let j = todayOffset; j >= 0; j--) order.push(j);
-      for (let j = 6; j > todayOffset; j--) order.push(j);
-      return order;
+      return [0, 1, 2, 3, 4, 5, 6];
     }
 
     function renderWeeklyDots() {
