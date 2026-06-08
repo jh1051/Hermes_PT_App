@@ -14,6 +14,97 @@
     "goalWeight": { "st": 0, "lb": 0 },
     "calorieTarget": { "min": 0, "max": 0 }
   },
+  "workoutPlan": {
+    "Monday": {
+      "name": "Push Day",
+      "focus": "Chest, Shoulders, Triceps",
+      "description": "Focus on compound pressing and accessory isolation work.",
+      "icon": "fa-dumbbell",
+      "exercises": [
+        "Barbell Bench Press 4x8-10",
+        "Overhead Press 3x10-12",
+        "Incline Dumbbell Press 3x12",
+        "Lateral Raises 3x15",
+        "Tricep Pushdowns 3x12-15"
+      ]
+    },
+    "Tuesday": {
+      "name": "Pull Day",
+      "focus": "Back, Biceps",
+      "description": "Vertical and horizontal pulling with bicep finishers.",
+      "icon": "fa-dumbbell",
+      "exercises": [
+        "Deadlifts 4x6-8",
+        "Pull-Ups 3xAMRAP",
+        "Barbell Rows 3x10-12",
+        "Face Pulls 3x15",
+        "Barbell Curls 3x12"
+      ]
+    },
+    "Wednesday": {
+      "name": "Leg Day",
+      "focus": "Quads, Hamstrings, Glutes",
+      "description": "Heavy lower body compound lifts.",
+      "icon": "fa-person-walking",
+      "exercises": [
+        "Squats 4x8-10",
+        "Romanian Deadlifts 3x10-12",
+        "Leg Press 3x12-15",
+        "Walking Lunges 3x12 per leg",
+        "Calf Raises 4x15"
+      ]
+    },
+    "Thursday": {
+      "name": "Push Day",
+      "focus": "Chest, Shoulders, Triceps",
+      "description": "Volume push day with lighter loads.",
+      "icon": "fa-dumbbell",
+      "exercises": [
+        "Dumbbell Bench Press 4x10-12",
+        "Arnold Press 3x12",
+        "Cable Crossovers 3x15",
+        "Front Raises 3x12",
+        "Overhead Tricep Extension 3x12"
+      ]
+    },
+    "Friday": {
+      "name": "Pull Day",
+      "focus": "Back, Biceps",
+      "description": "Strength-focused pulling.",
+      "icon": "fa-dumbbell",
+      "exercises": [
+        "Barbell Rows 4x8-10",
+        "Lat Pulldowns 3x10-12",
+        "Seated Cable Rows 3x12",
+        "Rear Delt Flys 3x15",
+        "Hammer Curls 3x12"
+      ]
+    },
+    "Saturday": {
+      "name": "Cardio & Core",
+      "focus": "Conditioning",
+      "description": "Metabolic conditioning and ab work.",
+      "icon": "fa-heart-pulse",
+      "exercises": [
+        "20 min HIIT on bike/rower",
+        "Planks 3x60s",
+        "Hanging Leg Raises 3x12",
+        "Russian Twists 3x20",
+        "Farmer's Carries 3x30s"
+      ]
+    },
+    "Sunday": {
+      "name": "Rest",
+      "focus": "Recovery",
+      "description": "Active recovery: light stretching, foam rolling, or walk.",
+      "icon": "fa-bed",
+      "exercises": [
+        "Full body stretching 15 min",
+        "Foam rolling 10 min",
+        "Light walk 20-30 min"
+      ]
+    }
+  },
   "weighIns": [
     {
       "date": "YYYY-MM-DD",

@@ -1548,6 +1548,79 @@
       flex-shrink: 0;
     }
 
+    /* Workout plan popup */
+    .plan-day-card {
+      padding: 14px 16px;
+      background: var(--green-bg-soft);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .plan-day-card:last-child {
+      margin-bottom: 0;
+    }
+    .plan-day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .plan-day-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .plan-day-icon {
+      font-size: 16px;
+      color: var(--green-dark);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .plan-day-focus {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .plan-day-desc {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.4;
+      white-space: pre-wrap;
+    }
+    .plan-day-empty {
+      opacity: 0.5;
+    }
+    .plan-day-exercises {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(20, 61, 34, 0.08);
+    }
+    .plan-day-exercises .plan-ex {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 3px 0 3px 12px;
+      position: relative;
+    }
+    .plan-day-exercises .plan-ex::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green-track);
+    }
+
     /* Activity calendar popup */
     .calendar-popup {
       background: #ffffff;
@@ -2047,6 +2120,9 @@
         <button class="week-nav-btn" id="workoutWeekNext" type="button" aria-label="Next week">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
+        <button class="week-nav-btn" id="workoutPlanBtn" type="button" aria-label="View workout plan" title="Workout Plan">
+          <i class="fa-solid fa-eye"></i>
+        </button>
       </div>
       <div class="workout-days" id="workoutDays"></div>
     </section>
@@ -2227,6 +2303,19 @@
         <span class="legend-item"><span class="legend-swatch"></span>Active</span>
         <span class="legend-item"><span class="legend-swatch legend-swatch--today"></span>Today</span>
       </div>
+    </div>
+  </div>
+
+  <div class="meal-popup-backdrop" id="workoutPlanPopup" aria-hidden="true">
+    <div class="workout-popup" role="dialog" aria-labelledby="workoutPlanPopupTitle">
+      <div class="workout-popup-handle"></div>
+      <div class="workout-popup-header">
+        <div class="workout-popup-title" id="workoutPlanPopupTitle">This Week's Plan</div>
+        <button class="workout-popup-close" id="workoutPlanPopupClose" type="button" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="plan-days" id="workoutPlanDays"></div>
     </div>
   </div>
 
@@ -3131,6 +3220,74 @@
       var btn = this;
       btn.classList.add("spinning");
       location.reload();
+    });
+
+    const workoutPlanBtn = document.getElementById("workoutPlanBtn");
+    const workoutPlanPopup = document.getElementById("workoutPlanPopup");
+    const workoutPlanPopupClose = document.getElementById("workoutPlanPopupClose");
+    const workoutPlanDays = document.getElementById("workoutPlanDays");
+    const workoutPlanPopupTitle = document.getElementById("workoutPlanPopupTitle");
+
+    function openWorkoutPlanPopup() {
+      const plan = appData && appData.workoutPlan;
+      if (!plan) {
+        workoutPlanDays.innerHTML = '<div class="plan-day-card plan-day-empty"><div class="plan-day-head"><span class="plan-day-name">No plan set</span></div><div class="plan-day-desc">Add a "workoutPlan" section to your data file.</div></div>';
+        workoutPlanPopupTitle.textContent = "Workout Plan";
+        workoutPlanPopup.classList.add("visible");
+        workoutPlanPopup.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        return;
+      }
+      const DAY_NAMES_FULL = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      const icons = {
+        "Push": "fa-dumbbell", "Pull": "fa-dumbbell", "Legs": "fa-person-walking",
+        "Upper": "fa-dumbbell", "Lower": "fa-person-walking", "Cardio": "fa-heart-pulse",
+        "Rest": "fa-bed", "Core": "fa-person"
+      };
+      let html = "";
+      DAY_NAMES_FULL.forEach(function(day) {
+        const d = plan && plan[day];
+        if (d && d.name) {
+          const iconClass = d.icon || icons[d.name] || "fa-dumbbell";
+          html += '<div class="plan-day-card">' +
+            '<div class="plan-day-head">' +
+              '<span class="plan-day-name">' + day + '</span>' +
+              '<span class="plan-day-icon"><i class="fa-solid ' + iconClass + '"></i></span>' +
+            '</div>' +
+            '<div class="plan-day-focus">' + d.name + (d.focus ? ' \u2014 ' + d.focus : '') + '</div>' +
+            (d.description ? '<div class="plan-day-desc">' + d.description + '</div>' : '') +
+            (d.exercises && d.exercises.length > 0 ? '<div class="plan-day-exercises">' + d.exercises.map(function(ex) { return '<div class="plan-ex">' + ex + '</div>'; }).join("") + '</div>' : '') +
+          '</div>';
+        } else {
+          html += '<div class="plan-day-card plan-day-empty">' +
+            '<div class="plan-day-head">' +
+              '<span class="plan-day-name">' + day + '</span>' +
+              '<span class="plan-day-icon"><i class="fa-solid fa-minus"></i></span>' +
+            '</div>' +
+            '<div class="plan-day-desc">Rest day</div>' +
+          '</div>';
+        }
+      });
+      workoutPlanDays.innerHTML = html;
+      workoutPlanPopupTitle.textContent = "This Week's Plan";
+      workoutPlanPopup.classList.add("visible");
+      workoutPlanPopup.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeWorkoutPlanPopup() {
+      workoutPlanPopup.classList.remove("visible");
+      workoutPlanPopup.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    workoutPlanBtn.addEventListener("click", openWorkoutPlanPopup);
+    workoutPlanPopupClose.addEventListener("click", closeWorkoutPlanPopup);
+    workoutPlanPopup.addEventListener("click", (e) => {
+      if (e.target === workoutPlanPopup) closeWorkoutPlanPopup();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && workoutPlanPopup.classList.contains("visible")) closeWorkoutPlanPopup();
     });
 
     const MONTHS_FULL = ["January", "February", "March", "April", "May", "June",
